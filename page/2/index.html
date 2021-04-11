@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon/manifest.json">
+  <meta name="google-site-verification" content="yL1R2eDsKDqjPNaOBKp1usSDw8SQNzaO35svs1LKYWw">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"perfectacle.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="Toss Server Developer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="오늘도 끄적끄적">
+<meta property="og:url" content="https://perfectacle.github.io/page/2/index.html">
+<meta property="og:site_name" content="오늘도 끄적끄적">
+<meta property="og:description" content="Toss Server Developer">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="양권성">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://perfectacle.github.io/page/2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'ko'
+  };
+</script><script data-ad-client="ca-pub-3881550906962162" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<title>오늘도 끄적끄적</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87795455-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-87795455-1');
+      }
+    </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="오늘도 끄적끄적" type="application/atom+xml">
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">오늘도 끄적끄적</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">느리더라도 꾸준하게</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="양권성" src="/images/avatar/avatar.png">
+  <p class="site-author-name" itemprop="name">양권성</p>
+  <div class="site-description" itemprop="description">Toss Server Developer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">242</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perfectacle" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:perfectacle@gmail.com" title="E-Mail → mailto:perfectacle@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/perfectacle" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2020/06/11/how-to-make-subclasses-easy-to-remove/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/06/11/how-to-make-subclasses-easy-to-remove/" class="post-title-link" itemprop="url">(TDD) 하위 클래스를 제거하기 쉽게 만드는 방법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2020-06-11 16:03:32" itemprop="dateCreated datePublished" datetime="2020-06-11T16:03:32+09:00">2020-06-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Study/" itemprop="url" rel="index"><span itemprop="name">Study</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/06/11/how-to-make-subclasses-easy-to-remove/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/11/how-to-make-subclasses-easy-to-remove/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.naver.com/bookdb/book_detail.nhn?bid=7443642">TDD By Example</a> 책을 보다가 감명 받은 부분을 정리해봤다.<br>기본적으로 아래 4가지 원칙을 따라 진행한다.</p>
+<ol>
+<li>Red - <strong>실패</strong>하는 <strong>작은</strong> 테스트를 작성(최초에는 컴파일 조차 되지 않음)</li>
+<li>Green - <strong>빨리</strong> 테스트가 <strong>통과</strong>하게 끔 수정(이를 위해선 어떠한 <strong>죄악</strong>도 용서됨)</li>
+<li>Refactoring - 모든 <strong>중복</strong>을 <strong>제거</strong>(2번에서 수행한 죄악들을 청산)</li>
+</ol>
+<p>책에서는 달러($)와 프랑(CHF, 스위스 통화)의 연산에 대한 조그만 테스트를 시작으로 두 통화 사이의 중복을 제거해나갔다.<br>해당 포스트는 <a href="/2020/06/09/change-inheritance-hierarchy-without-affecting-client">클라이언트에 영향 없이 상속 구조를 마음껏 고칠 수 있는 방법</a>에서 제거하지 못한 중복인 plus 메서드를 제거하는 것으로 시작한다.<br>(기본적으로 코틀린, JUnit5, kotest를 사용했다)<br>기본적인 내용은 내가 감명깊게 느낀 부분을 설명하기 위해 TDD로 진행해나가는 과정이고 실제 이 포스트의 핵심은 <a href="#%EB%A7%88%EC%B9%98%EB%A9%B0">마치며</a>를 보면 된다.</p>
+<h2 id="각-하위-클래스에-있는-plus-메서드-제거하기"><a href="#각-하위-클래스에-있는-plus-메서드-제거하기" class="headerlink" title="각 하위 클래스에 있는 plus 메서드 제거하기"></a>각 하위 클래스에 있는 plus 메서드 제거하기</h2><p>기본적으로 소스 코드는 아래와 같다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/11/how-to-make-subclasses-easy-to-remove/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2020/06/09/change-inheritance-hierarchy-without-affecting-client/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/06/09/change-inheritance-hierarchy-without-affecting-client/" class="post-title-link" itemprop="url">(TDD) 클라이언트에 영향 없이 상속 구조를 마음껏 고칠 수 있는 방법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2020-06-09 18:21:29" itemprop="dateCreated datePublished" datetime="2020-06-09T18:21:29+09:00">2020-06-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Study/" itemprop="url" rel="index"><span itemprop="name">Study</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/06/09/change-inheritance-hierarchy-without-affecting-client/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/09/change-inheritance-hierarchy-without-affecting-client/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.naver.com/bookdb/book_detail.nhn?bid=7443642">TDD By Example</a> 책을 보다가 감명 받은 부분을 정리해봤다.<br>기본적으로 아래 4가지 원칙을 따라 진행한다.</p>
+<ol>
+<li>Red - <strong>실패</strong>하는 <strong>작은</strong> 테스트를 작성(최초에는 컴파일 조차 되지 않음)</li>
+<li>Green - <strong>빨리</strong> 테스트가 <strong>통과</strong>하게 끔 수정(이를 위해선 어떠한 <strong>죄악</strong>도 용서됨)</li>
+<li>Refactoring - 모든 <strong>중복</strong>을 <strong>제거</strong>(2번에서 수행한 죄악들을 청산)</li>
+</ol>
+<p>책에서는 달러($)와 프랑(CHF, 스위스 통화)의 연산에 대한 조그만 테스트를 시작으로 두 통화 사이의 중복을 제거해나갔다.<br>해당 포스트도 위 두가지 통화에 대해 덧셈 연산을 테스트 하는 작은 코드로 시작한다.<br>(기본적으로 코틀린, JUnit5, kotest를 사용했다)<br>기본적인 내용은 내가 감명깊게 느낀 부분을 설명하기 위해 TDD로 진행해나가는 과정이고 실제 이 포스트의 핵심은 <a href="#%ED%95%98%EC%9C%84-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%A7%81%EC%A0%91%EC%A0%81%EC%9D%B8-%EC%B0%B8%EC%A1%B0-%EC%A4%84%EC%9D%B4%EA%B8%B0">하위 클래스의 직접적인 참조 줄이기</a>를 보면 된다.</p>
+<h2 id="Dollar-클래스-구현하기"><a href="#Dollar-클래스-구현하기" class="headerlink" title="Dollar 클래스 구현하기"></a>Dollar 클래스 구현하기</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DollarTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> `$5 + $2 = $7`<span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// Given</span></span><br><span class="line">        <span class="keyword">val</span> five = Dollar(<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">val</span> two = Dollar(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// When</span></span><br><span class="line">        <span class="keyword">val</span> <span class="keyword">actual</span> = five + two</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Then</span></span><br><span class="line">        <span class="keyword">val</span> expected = Dollar(<span class="number">7</span>)</span><br><span class="line">        <span class="keyword">actual</span> shouldBe expected</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/09/change-inheritance-hierarchy-without-affecting-client/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2020/05/31/how-to-set-read-more-in-next-theme/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/31/how-to-set-read-more-in-next-theme/" class="post-title-link" itemprop="url">(Hexo) NexT 테마에서 '더 읽어보기'를 설정하는 방법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2020-05-31 12:15:21" itemprop="dateCreated datePublished" datetime="2020-05-31T12:15:21+09:00">2020-05-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88/" itemprop="url" rel="index"><span itemprop="name">잡동사니</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/05/31/how-to-set-read-more-in-next-theme/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/31/how-to-set-read-more-in-next-theme/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>themes/next/_config.yml</code>을 보면 아래와 같이 기본적으로 ‘더 읽어보기’가 세팅돼있다.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Automatically excerpt (Not recommend).</span></span><br><span class="line"><span class="comment"># Use &lt;!-- more --&gt; in the post to control excerpt accurately.</span></span><br><span class="line"><span class="attr">auto_excerpt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">length:</span> <span class="number">150</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Read more button</span></span><br><span class="line"><span class="comment"># If true, the read more button would be displayed in excerpt section.</span></span><br><span class="line"><span class="attr">read_more_btn:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>하지만 NexT Theme 7.6.0 이상의 버전에서는 위와 같이 설정이 돼있어도 ‘더 읽어보기’가 나오지 않는다.<br>이럴 때는 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/chekun/hexo-excerpt">hexo-excerpt</a> 플러그인을 설치해주면 해결된다. <span class="emoji" alias="tada" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">&#x1f389;</span><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/theme-next/hexo-theme-next/issues/1245#issuecomment-558486354">https://github.com/theme-next/hexo-theme-next/issues/1245#issuecomment-558486354</a></p>
+<blockquote>
+<p>If you are using NexT 7.6.0 and later, please install the plugin: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/chekun/hexo-excerpt">https://github.com/chekun/hexo-excerpt</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2020/01/24/korean-certification/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/24/korean-certification/" class="post-title-link" itemprop="url">공인인증서</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2020-01-24 15:52:03" itemprop="dateCreated datePublished" datetime="2020-01-24T15:52:03+09:00">2020-01-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:35:51" itemprop="dateModified" datetime="2020-08-24T01:35:51+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/%EC%82%BD%EC%A7%88/" itemprop="url" rel="index"><span itemprop="name">삽질</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/01/24/korean-certification/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/24/korean-certification/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/korean-certification/thumb.png" alt="npki라는 디렉리토리 안에 보관돼있는 공인인증서의 공개키(*.der)와 비밀키(*.key)"></p>
+<h2 id="인증서는-왜-쓸까"><a href="#인증서는-왜-쓸까" class="headerlink" title="인증서는 왜 쓸까"></a>인증서는 왜 쓸까</h2><p>A가 데이터를 보냈는데 이게 진짜 A가 보낸 건지 아닌지를 검증할 수가 없다.<br>인증서는 A라는 사람이라는 것을 <strong>보증해주는 문서</strong>라고 보면 된다.<br>따라서 A한테 메세지가 올 때 A의 인증서가 오지 않는다면 A라고 취급을 하지 않으면 된다.<br>하지만 개나소나 인증서를 발급할 수 있으면 A 행세를 아무나 낼테니까 **인증된 기관(CA, Certificate Authority)**으로부터 적절한 절차를 거쳐 인증서를 발급받을 수 있다.</p>
+<p><img src="/images/korean-certification/google-certificate.png" alt="구글에서 사용 중인 인증서"><br>우리가 알고 있는 TLS 인증서(https 도메인마다 발라져있는) 같은 경우에도 이런 절차를 거쳐 발급된다.<br>그리고 이런 인증서들은 **X.509(공개키 인증서 포맷의 표준)**라는 표준을 준수한다.</p>
+<h2 id="공인인증서는-왜-나왔을까"><a href="#공인인증서는-왜-나왔을까" class="headerlink" title="공인인증서는 왜 나왔을까"></a>공인인증서는 왜 나왔을까</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/24/korean-certification/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/11/24/aes/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/11/24/aes/" class="post-title-link" itemprop="url">AES 256 CBC + PBKDF2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-11-24 09:59:51" itemprop="dateCreated datePublished" datetime="2019-11-24T09:59:51+09:00">2019-11-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/24/aes/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/24/aes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/aes/thumb.png">  </p>
+<p>막연하게 양방향 암호화 하면 당연스레 AES를 떠올리고, 제대로 모른 채로 사용했다.<br>이제부터라도 조금은 알고 써야겠다는 생각이 들어서 살짝 정리해봤다.</p>
+<h2 id="양방향-단방향-암호화"><a href="#양방향-단방향-암호화" class="headerlink" title="양방향/단방향 암호화"></a>양방향/단방향 암호화</h2><p>양방향 암호화는 암호화 및 복호화가 가능하다는 소리다.<br>휴대폰 번호 등등 민감한 개인정보는 암호화 해서 저장해야하는데 고객 정보를 식별하기 위해선 복호화도 가능해야한다.<br>혹시나 키와 DB가 털린다면 복호화가 가능하므로 적어도 개인정보는 마스킹 한 후에 암호화해서 저장해야한다.<br>양방향 암호화 알고리즘에는 DES(보안에 취약), <strong>AES</strong>, SEED(국내에서 개발, 공인인증서에 사용됨) 등등이 있다.</p>
+<p>단방향 암호화는 암호화만 가능하고 복호화는 불가능하다는 소리다.<br>비밀번호와 같이 암호화 한 값들끼리 단순히 비교만 하면 되고, 복호화 할 필요가 없는 정보들은 단방향 암호화 해야한다.<br>혹시나 키와 DB가 털려도 복호화가 불가능하기 때문에 암호화된 값만 알 수 있지 원본 비밀번호는 알 수 없기 때문에 양방향 암호화 보다는 좀 더 안전하다.<br>이런 특성 때문에 비밀번호 찾기 대신에 비밀번호 재설정 기능 밖에 지원 할 수 없다. (비밀번호 찾기를 지원해주는 사이트는 보안이 매우 안 좋은 사이트이다.)<br>단방향 암호화 알고리즘에는 해시 알고리즘이 사용되며 SHA256, SHA512, MD5(무작위 대입 공격에 약함) 등등이 있다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/24/aes/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/09/18/kotlin-request-nullable-non-null/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/18/kotlin-request-nullable-non-null/" class="post-title-link" itemprop="url">(Kotlin) Request에서 Nullable? Non-Null?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-09-18 01:23:39" itemprop="dateCreated datePublished" datetime="2019-09-18T01:23:39+09:00">2019-09-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Kotlin/" itemprop="url" rel="index"><span itemprop="name">Kotlin</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/09/18/kotlin-request-nullable-non-null/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/18/kotlin-request-nullable-non-null/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>코틀린의 장점을 하나 꼽자면 Non-null 타입을 지원한다는 것이다.<br>모든 곳에 null을 없앨 수 있는데(100% 순수 코틀린 코드로만 짠다면)<br>통제할 수 없는 부분은 클라이언트로부터 받는 Request이다.  </p>
+<p>그래서 Request에는 어떤 타입을 써야할지 삽질을 해봤다.  </p>
+<h2 id="기본값을-사용하자"><a href="#기본값을-사용하자" class="headerlink" title="기본값을 사용하자."></a>기본값을 사용하자.</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DTO</span></span>(<span class="keyword">val</span> name: String? = <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">(<span class="meta">@RequestBody</span> dto: <span class="type">DTO</span>)</span></span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같을 때 request body의 name에 아무런 내용도 입력하지 않으면 name에 기본값 <code>null</code>이 잘 세팅된다.<br>기본값이 전부 존재하면 default constructor가 생성돼서 객체를 손쉽게 생성할 수 있다보니 테스트 할 때 용이하다.  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/18/kotlin-request-nullable-non-null/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/09/16/kotlin-de-serialize-dto/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/16/kotlin-de-serialize-dto/" class="post-title-link" itemprop="url">(Kotlin) De/Serialize DTO 뽀개서 뿌셔버리기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-09-16 00:30:06" itemprop="dateCreated datePublished" datetime="2019-09-16T00:30:06+09:00">2019-09-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Kotlin/" itemprop="url" rel="index"><span itemprop="name">Kotlin</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/09/16/kotlin-de-serialize-dto/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/16/kotlin-de-serialize-dto/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>연차 대비 너무너무 느린 개발 속도를 향상시키기 위해 나만의 Cheetsheet를 하나씩 만들어야겠다.<br>처음 접하는 코틀린 환경에서 자바에서는 좀 할만했던 DTO의 (De)Serialize 관련해서 적어보았다.<br>모든 설명은 <strong>JSON으로 request와 response를 주고받는 HTTP API 기반</strong>으로 진행하기 때문에 엄밀히 따지면 부정확한 내용들이 많다.</p>
+<h2 id="용어-설명"><a href="#용어-설명" class="headerlink" title="용어 설명"></a>용어 설명</h2><p>간단하게 용어들을 집고 넘어가자.</p>
+<h3 id="DTO-Data-Transfer-Object"><a href="#DTO-Data-Transfer-Object" class="headerlink" title="DTO(Data Transfer Object)"></a>DTO(Data Transfer Object)</h3><p>데이터를 전송하는데 사용하는 객체  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/16/kotlin-de-serialize-dto/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/08/24/assets-debts-cash-flow-and-captial-gains/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/24/assets-debts-cash-flow-and-captial-gains/" class="post-title-link" itemprop="url">자산과 부채, 그리고 현금흐름과 자본이득</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-08-24 15:03:12" itemprop="dateCreated datePublished" datetime="2019-08-24T15:03:12+09:00">2019-08-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EA%B2%BD%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">경제</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/08/24/assets-debts-cash-flow-and-captial-gains/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/24/assets-debts-cash-flow-and-captial-gains/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>돈으로부터 자유로워지려면 어떻게 해야할까?<br>월급을 얼마를 받던 상관없이 내가 원하는 삶을 살 수는 없을까?<br>지금은 내가 일을 해서 돈을 벌지만, 내가 일을 못하게 되면 어떤 삶을 살아야할까?<br>그렇다면 평생 일을 할 수 있다면, 죽을 때까지 계속해서 일을 해야하는 걸까?</p>
+<p>사람마다 일과 삶(Working &amp; Life), 그리고 돈에 대한 가치가 다 다르겠지만 내 스스로 기준을 정하고 내가 원하는 삶으로 이끌어나가기 위해서 책을 읽은 내용을 토대로 좀 정리해봤다.  </p>
+<h2 id="자산과-부채"><a href="#자산과-부채" class="headerlink" title="자산과 부채"></a>자산과 부채</h2><p>로버트 기요사키의 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.naver.com/bookdb/book_detail.nhn?bid=13347349">부자 아빠, 가난한 아빠</a>에서는 다음과 같이 설명하고 있다.  </p>
+<blockquote>
+<p>자산은 내 지갑에 돈을 넣어주고, 부채는 내 지갑에서 돈을 꺼내간다.</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/24/assets-debts-cash-flow-and-captial-gains/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/08/23/exit-yanolja-feat-leisureq/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/23/exit-yanolja-feat-leisureq/" class="post-title-link" itemprop="url">야놀자를 떠나며... (feat. 레저큐)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-08-23 08:16:36" itemprop="dateCreated datePublished" datetime="2019-08-23T08:16:36+09:00">2019-08-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-04-11 23:02:33" itemprop="dateModified" datetime="2021-04-11T23:02:33+09:00">2021-04-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88/" itemprop="url" rel="index"><span itemprop="name">잡동사니</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/08/23/exit-yanolja-feat-leisureq/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/23/exit-yanolja-feat-leisureq/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/exit-yanolja-feat-leisureq/thumb.gif"><br>오늘은 야놀자 서류상 <strong>퇴사일</strong>이다. (오늘까지 남은 연차를 사용했다.)<br>총 세 번의 이직 시도 끝에 성공할 수 있었다.<br>여태까지 신입으로만 이직(프론트엔드 신입(5개월 재직) -&gt; 백엔드 중고 신입)했고, 지인 추천을 통해서만 면접을 봤는데<br>이번 이직에서는 지인 추천도 있었지만, 내 힘으로 스스로 지원해서 합격까지 한 케이스도 많아서 굉장히 뿌듯한 경험이었다.<br>나와 같은 2~3년 차 주니어 분에게 도움이 됐으면 하는 바람, 개인적으로 회고를 하고 싶어서 정리를 해봤다.  </p>
+<h2 id="왜-퇴사를-결심했나"><a href="#왜-퇴사를-결심했나" class="headerlink" title="왜 퇴사를 결심했나"></a>왜 퇴사를 결심했나</h2><p>야놀자는 탄력 근무제(연장 근무를 했다면 다른 날 단축 근무 가능), 식비 지원, 분기별 야놀자 포인트 지급, 전용 사옥 등등의 좋은 복지들이 있다.<br>또한 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://yanolja.github.io/2019/07/tech_yanolja">Tech야, 놀자</a>란 세미나를 할 정도로 탄탄한 개발문화와 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.mk.co.kr/news/business/view/2019/06/406700/">유니콘 기업</a>이 되는 등 굉장히 유망한 회사다.<br>그럼에도 불구하고 내가 퇴사를 결심한 계기를 크게 두 가지다.</p>
+<ol>
+<li>가장 큰 요인은 <strong>개발에 집중하지 못하는 환경</strong>이었다.<br>레저큐에서 야놀자로 조직이 이동되면서(완전히 퇴사 후 입사 처리되었다. 레저큐는 야놀자의 계열사인데 일부만 야놀자로 조직 이동이 된 상태다.) 레저큐의 인프라 쪽을 한 번 쭉 털고 가야하는 이슈가 있었다.<br>평상시에 인프라에 관심이 많았던 내가 해당 업무를 맡게 되었고, 끝까지 털지 못하고 퇴사하게 되었다. (이후에는 시스템 엔지니어 쪽 팀에서 도와줄 예정인 걸로 알고 있다.)<br>개발이 하고 싶었지만, 점점 인프라 쪽 업무의 비중이 높아지면서 내 정체성을 의심하기 시작했다.<br>나는 서버 개발자인가? 아니면 시스템 엔지니어인가…?<br>물론 인프라 쪽도 알면 좋지만, 아직까지는 개발이 더 <strong>마렵다</strong>는 생각이 들었다.</li>
+<li><strong>연봉</strong><br>대부분의 이직 사유 중 하나일 것이다.<br>물론 나보다 열악한 근무 환경 속에서도 안 좋은 대우를 받으시는 분들도 있을 거다.<br>하지만 사람의 욕심은 끝이 없어서 자꾸만 위를 올려다 보게 되었다.<br>네임밸류 기업에서 시작을 한 게 아니기 때문에 첫 시작 자체가 높지 않았던 탓도 있었던 것 같다. (그렇다고 그렇게 낮은 편도 아니었다.)</li>
+</ol>
+<p>그 외에도 있긴 하지만, 너무 개인적인 일이기도 하고 크게 공감을 얻을만한 내용이 아니어서 적지 않았다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/23/exit-yanolja-feat-leisureq/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/08/22/hexo-theme-next/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/22/hexo-theme-next/" class="post-title-link" itemprop="url">(Hexo) NexT 테마</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-08-22 15:38:15" itemprop="dateCreated datePublished" datetime="2019-08-22T15:38:15+09:00">2019-08-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88/" itemprop="url" rel="index"><span itemprop="name">잡동사니</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/08/22/hexo-theme-next/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/22/hexo-theme-next/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Static-Page-Blog-테마-선정"><a href="#Static-Page-Blog-테마-선정" class="headerlink" title="Static Page Blog 테마 선정"></a>Static Page Blog 테마 선정</h2><p>Static Page로 만들어진 블로그들은 테마가 굉장히 중요하다.<br>네이버나 티스토리에는 있는 기본적인 기능들이 없는 테마들이 상당히 많다. (검색, 카테고리, 태그, 페이지네이션 등등)<br>따라서 디자인만 보고 골랐다가 커스터마이징하느라 시간을 날리기 십상이기 때문에 디자인과 기능 사이에 어느정도 절충안을 가지고 골라야한다.  </p>
+<p><img src="/images/hexo-theme-next/hueman.png"><br>나는 이전에 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/ppoffice/hexo-theme-hueman">Hueman</a> 테마를 살짝 커스터마이징해서 사용했다.<br>검색이나 카테고리, 메뉴 등등의 기능은 좋았지만 디자인이 좀 구려보였다.<br>다소 아쉽긴 했지만 블로그의 본질은 <strong>글쓰기</strong>이기 때문에 좀 더 가치있는 일에 집중을 하고 싶어서 큰 불만없이 사용하고 있었다.</p>
+<p><img src="/images/hexo-theme-next/pork-cutlet.jpeg" alt="넘나 맛있는 내사랑 돈까스를 매주 공짜로 먹을 수만 있다면..."><br>하지만 욕심이 생겨서 구글 애드센스를 통해 조그만 수익이라도 창출해보고 싶었다.<br>그러나 번번히 정책에 부합하지 않는다는 답변만 받았다.<br>그러다보니 ‘애드센스 다느라 뻘짓할 시간에 공부해서 연봉 올리는 게 더 낫겠다’는 판단이 들었다.</p>
+<h2 id="왜-NexT-테마로-바꾸는가"><a href="#왜-NexT-테마로-바꾸는가" class="headerlink" title="왜 NexT 테마로 바꾸는가?"></a>왜 NexT 테마로 바꾸는가?</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/22/hexo-theme-next/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+  </nav>
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">양권성</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://exobud.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>

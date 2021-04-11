@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon/manifest.json">
+  <meta name="google-site-verification" content="yL1R2eDsKDqjPNaOBKp1usSDw8SQNzaO35svs1LKYWw">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"perfectacle.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="Toss Server Developer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="오늘도 끄적끄적">
+<meta property="og:url" content="https://perfectacle.github.io/page/16/index.html">
+<meta property="og:site_name" content="오늘도 끄적끄적">
+<meta property="og:description" content="Toss Server Developer">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="양권성">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://perfectacle.github.io/page/16/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'ko'
+  };
+</script><script data-ad-client="ca-pub-3881550906962162" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<title>오늘도 끄적끄적</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87795455-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-87795455-1');
+      }
+    </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="오늘도 끄적끄적" type="application/atom+xml">
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">오늘도 끄적끄적</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">느리더라도 꾸준하게</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="양권성" src="/images/avatar/avatar.png">
+  <p class="site-author-name" itemprop="name">양권성</p>
+  <div class="site-description" itemprop="description">Toss Server Developer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">242</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perfectacle" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:perfectacle@gmail.com" title="E-Mail → mailto:perfectacle@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/perfectacle" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/03/25/react-hot-loader-3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/25/react-hot-loader-3/" class="post-title-link" itemprop="url">(React Hot Loader) v3로 마이그레이션 해보자!</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-03-25 10:39:14" itemprop="dateCreated datePublished" datetime="2017-03-25T10:39:14+09:00">2017-03-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/03/25/react-hot-loader-3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/25/react-hot-loader-3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/react-hot-loader-3/thumb.png" alt="요놈도 v1이 언제 deprecated 될지 모르니 얼른 마이그레이션 해보자">  </p>
+<h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p>기본적으로 <a href="/2016/11/18/Module-bundling-with-Webpck/">웹팩</a>, <a href="/2016/11/11/Babel-ES6-with-IE8/">바벨</a>, 리액트 라우터 등등은 안다는 전제 하에 글을 썼다.<br>웹팩 2에 대한 모르는 부분은 아래 글을 조금씩 참조하면 도움이 될 것이다.  </p>
+<ul>
+<li><a href="/2017/03/12/webpack2-tree-shaking/">(Webpack 2) 트리 쉐이킹을 해보자!</a>  </li>
+<li><a href="/2017/03/13/webpack2-code-splitting/">(Webpack 2) 코드를 분할해보자!</a>  </li>
+</ul>
+<p>또한 리액트 라우터 v4 예제로 진행할 것이므로 아래 포스트를 참고하고 소스 코드를 클론하자.  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/25/react-hot-loader-3/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/03/25/react-router-v4/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/25/react-router-v4/" class="post-title-link" itemprop="url">(React Router) v4로 마이그레이션 해보자!</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-03-25 09:39:14" itemprop="dateCreated datePublished" datetime="2017-03-25T09:39:14+09:00">2017-03-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/03/25/react-router-v4/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/25/react-router-v4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/react-router-v4/thumb.png">  </p>
+<h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p>~~React Router v4가 정식으로 나와서 3은 deprecated 된 거나 마찬가지라고 본다.~~~<br>현재 React Router v3은 디프리케잇 되지 않고 React Router v4와 다른 노선을 탔을 뿐, 지원은 계속 해주는 것 같다.<br>따라서 레거시 환경을 싫어하기도 해서 한 번 마이그레이션을 간단하게 해보았다.<br>기본적으로 <a href="/2016/11/18/Module-bundling-with-Webpck/">웹팩</a>, <a href="/2016/11/11/Babel-ES6-with-IE8/">바벨</a>, 리액트 라우터 등등은 안다는 전제 하에 글을 썼다.<br>웹팩 2에 대한 모르는 부분은 아래 글을 조금씩 참조하면 도움이 될 것이다.  </p>
+<ul>
+<li><a href="/2017/03/12/webpack2-tree-shaking/">(Webpack 2) 트리 쉐이킹을 해보자!</a>  </li>
+<li><a href="/2017/03/13/webpack2-code-splitting/">(Webpack 2) 코드를 분할해보자!</a></li>
+</ul>
+<h2 id="v3으로-만들어보기"><a href="#v3으로-만들어보기" class="headerlink" title="v3으로 만들어보기"></a>v3으로 만들어보기</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/25/react-router-v4/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/03/13/webpack2-code-splitting/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/13/webpack2-code-splitting/" class="post-title-link" itemprop="url">(Webpack 2) 코드를 분할해보자!</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-03-13 09:32:22" itemprop="dateCreated datePublished" datetime="2017-03-13T09:32:22+09:00">2017-03-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:34:34" itemprop="dateModified" datetime="2020-08-24T01:34:34+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/03/13/webpack2-code-splitting/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/13/webpack2-code-splitting/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p>웹팩 2, 웹팩 1, 바벨, 리액트 등등에 대해서 기본적인 부분은 설명하지 않는다.<br>또한 <a href="/2017/03/12/webpack2-tree-shaking/">(Webpack 2) 트리 쉐이킹을 해보자!</a>를 보고 나서 이 포스팅을 읽는 걸 추천한다.</p>
+<h2 id="코드를-왜-분할하지"><a href="#코드를-왜-분할하지" class="headerlink" title="코드를 왜 분할하지?"></a>코드를 왜 분할하지?</h2><p><img src="/images/webpack2-code-splitting/thumb.png"><br>SPA(Single Page Application)은 한 번에 모든 리소스를 로딩해서<br>초기 로딩 이후에 페이지 이동이 매우 빠르다는 장점을 가지고 있다.<br>하지만 앱의 규모가 커지면 모든 리소스를 한 번에 로딩하므로<br><code>초기 로딩</code>이 느려져 사용자 이탈을 유발하는 양날의 검을 가지고 있다.  </p>
+<h2 id="1단계-내-코드와-서드-파티-라이브러리-프레임워크-코드를-분리해보자"><a href="#1단계-내-코드와-서드-파티-라이브러리-프레임워크-코드를-분리해보자" class="headerlink" title="1단계: 내 코드와 서드 파티(라이브러리/프레임워크) 코드를 분리해보자."></a>1단계: 내 코드와 서드 파티(라이브러리/프레임워크) 코드를 분리해보자.</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/13/webpack2-code-splitting/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/03/12/webpack2-tree-shaking/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/12/webpack2-tree-shaking/" class="post-title-link" itemprop="url">(Webpack 2) 트리 쉐이킹을 해보자!</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-03-12 19:32:22" itemprop="dateCreated datePublished" datetime="2017-03-12T19:32:22+09:00">2017-03-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/03/12/webpack2-tree-shaking/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/12/webpack2-tree-shaking/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p>여기선 기본적으로 웹팩 1, 바벨, ES2015(ES6)을 알고 있다는 전제로 진행한다.<br>리액트 대신에 다른 서드 파티(라이브러리/프레임워크) 가지고 테스트하면서 이 글을 봐도 된다.<br>또한 이 글을 보고 나서 <a href="/2017/03/13/webpack2-code-splitting/">(Webpack 2) 코드를 분할해보자!</a>도 보는 걸 추천한다.</p>
+<h2 id="트리-쉐이킹-Tree-Shaking"><a href="#트리-쉐이킹-Tree-Shaking" class="headerlink" title="트리 쉐이킹(Tree Shaking)??"></a>트리 쉐이킹(Tree Shaking)??</h2><p><img src="/images/webpack2-tree-shaking/thumb.png" alt="나무를 흔들어 썩은 과일(필요없는 놈)을 떨어트리자!"><br>트리 쉐이킹이란 나무를 흔들어서 필요없는 걸 떨어트리는 행위를 말한다.<br>여기서 우리에게 필요없는 것이란 쓰지 않는 코드를 뜻한다.  </p>
+<h2 id="우리의-코드를-트리-쉐이킹-해보자"><a href="#우리의-코드를-트리-쉐이킹-해보자" class="headerlink" title="우리의 코드를 트리 쉐이킹 해보자"></a>우리의 코드를 트리 쉐이킹 해보자</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/12/webpack2-tree-shaking/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/03/01/perf-chk/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/01/perf-chk/" class="post-title-link" itemprop="url">(자작) perf-chk (Node.js 애플리케이션)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-03-01 16:24:02" itemprop="dateCreated datePublished" datetime="2017-03-01T16:24:02+09:00">2017-03-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EC%9E%90%EC%9E%91/" itemprop="url" rel="index"><span itemprop="name">자작</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/03/01/perf-chk/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/01/perf-chk/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/perf-chk/thumb.png">  </p>
+<h1 id="perf-chk-Performance-Check"><a href="#perf-chk-Performance-Check" class="headerlink" title="perf-chk (Performance Check)"></a>perf-chk (Performance Check)</h1><h2 id="왜-perf-chk를-만들었나"><a href="#왜-perf-chk를-만들었나" class="headerlink" title="왜 perf-chk를 만들었나?"></a>왜 perf-chk를 만들었나?</h2><p>나는 코드 실행 시간에 굉장히 관심이 많다.<br>따라서 코드 실행 시간 측정을 위해 테스트를 종종 해보곤 한다.<br>그럴 때 아래와 같은 코드를 사용하였다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> iterations = <span class="number">10000000</span>;</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">&quot;function A&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;iterations; i++)&#123;</span><br><span class="line">  <span class="comment">// some code1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&quot;function A&quot;</span>); <span class="comment">// &#x27;Function A: xxx.xxx ms&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">&quot;function B&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;iterations; i++)&#123;</span><br><span class="line">  <span class="comment">// some code2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&quot;function B&quot;</span>); <span class="comment">// &#x27;Function B: xxx.xxx ms&#x27;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/01/perf-chk/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/02/15/es-this/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/15/es-this/" class="post-title-link" itemprop="url">(ES) this</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-02-15 09:00:37" itemprop="dateCreated datePublished" datetime="2017-02-15T09:00:37+09:00">2017-02-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/ECMAScript/" itemprop="url" rel="index"><span itemprop="name">ECMAScript</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/02/15/es-this/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/15/es-this/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/es-this/thumb.png"><br>자바스크립트에서 this는 상황에 따라 다른 값을 반환해서 아주 짜증나기 마련이다.<br>이와 관련해서 하나하나 낱낱이 테스트해보자.</p>
+<h2 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h2><h3 id="함수로서-호출할-때"><a href="#함수로서-호출할-때" class="headerlink" title="함수로서 호출할 때"></a>함수로서 호출할 때</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 함수로서 호출할 때</span></span><br><span class="line">  <span class="comment">// strict mode에서는 undefined</span></span><br><span class="line">  <span class="comment">// non-strict mode에서는 Window</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
+
+<h3 id="생성자-함수로서-호출할-때"><a href="#생성자-함수로서-호출할-때" class="headerlink" title="생성자 함수로서 호출할 때"></a>생성자 함수로서 호출할 때</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/15/es-this/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/02/13/es-tilt-operator/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/13/es-tilt-operator/" class="post-title-link" itemprop="url">(ES) ~(Tilde) 연산자</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-02-13 22:01:37" itemprop="dateCreated datePublished" datetime="2017-02-13T22:01:37+09:00">2017-02-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/ECMAScript/" itemprop="url" rel="index"><span itemprop="name">ECMAScript</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/02/13/es-tilt-operator/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/13/es-tilt-operator/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/es-tilt-operator/thumb.png"><br>우리는 주로 <code>~</code>라는 문자를 물결이라고 읽었다.<br>하지만 영어권 국가에서는 Tilde(틸드)라고 읽는다.<br>따라서 해당 연산자를 틸드 연산자라고 부른다.<br>해당 연산자가 기본적으로 어떤 일을 하는지 보자.  </p>
+<h2 id="뭐하는-놈이니"><a href="#뭐하는-놈이니" class="headerlink" title="뭐하는 놈이니?"></a>뭐하는 놈이니?</h2><p>~ 연산자는 비트 단위의 연산자이다.<br>즉, 10진수를 2진수로 바꿔버린 후 연산을 진행한다는 것이다.<br>비트 단위의 연산자 중에 Not을 진행하는 연산자이다.<br>Not 연산자이므로 단항 연산자이다.<br>간단하게 어떻게 작동하는지 보자.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(~<span class="number">1</span>); <span class="comment">// -2</span></span><br></pre></td></tr></table></figure>
+<p>일단 1을 2진수로 바꿔보자.<br>00000001<br>여기서 틸드 연산자를 쓰면<br>~00000001<br>Not 연산자 이므로 0을 1로, 1을 0으로 역전시킨다.<br>11111110<br>위에 2진수가 -2인지 확인해보자.<br><img src="/images/es-tilt-operator/01.png" alt="https://planetcalc.com/747/ 에서 확인해보자">  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/13/es-tilt-operator/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/02/13/Java-study-010day/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/13/Java-study-010day/" class="post-title-link" itemprop="url">(Java) 자바의 정석 3판 010일차 - 생성자, this, 멤버 변수 초기화</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-02-13 13:53:36" itemprop="dateCreated datePublished" datetime="2017-02-13T13:53:36+09:00">2017-02-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/02/13/Java-study-010day/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/13/Java-study-010day/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/Java-study-010day/thumb.png">  </p>
+<h2 id="생성자-Constructor"><a href="#생성자-Constructor" class="headerlink" title="생성자(Constructor)"></a>생성자(Constructor)</h2><p>인스턴스가 생성될 때 호출되는 <code>인스턴스 초기화 메소드</code><br>인스턴스 변수 초기화 작업에 주로 사용된다.  </p>
+<h3 id="생성자는-인스턴스를-생성하지-못한다"><a href="#생성자는-인스턴스를-생성하지-못한다" class="headerlink" title="생성자는 인스턴스를 생성하지 못한다!"></a>생성자는 인스턴스를 생성하지 못한다!</h3><p>나는 생성자로 인스턴스를 생성하고<br>new 연산자가 C언어의 &amp;(주소값 반환) 역할을 하는 줄 알았는데<br>new 연산자가 있어야 인스턴스를 생성하면서 그 주소값을 반환하게 하는 연산자인 것 같다.<br>생성자는 인스턴스 변수 초기화이지 그 이상(인스턴스 생성)도 그 이하도 아닌 것 같다.  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/13/Java-study-010day/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/02/13/es-logical-operator/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/13/es-logical-operator/" class="post-title-link" itemprop="url">(ES) 똑똑한 논리 연산자</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-02-13 09:01:37" itemprop="dateCreated datePublished" datetime="2017-02-13T09:01:37+09:00">2017-02-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/ECMAScript/" itemprop="url" rel="index"><span itemprop="name">ECMAScript</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/02/13/es-logical-operator/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/13/es-logical-operator/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/es-logical-operator/thumb.png"><br>오늘은 기본값을 위해 많이 쓰던 논리 연산자인<br>||와 &amp;&amp;을 집중 탐구해보았다.<br>우선 위에 있는 녀석들은 어떨 때 쓰는지 알아보자.  </p>
+<h2 id="사용-사례"><a href="#사용-사례" class="headerlink" title="사용 사례"></a>사용 사례</h2><ul>
+<li><p>네임 스페이스 패턴(~ES5)<br>웹팩을 사용하면 js 파일을 모듈 단위로 사용할 수 있지만,<br>그럴 환경이 안 되면 아래와 같은 우회 방법을 통해서 전역 스코프를 최대한 덜 더럽힐 수 있다.<br>ES6에는 모듈 import, export 기능이 있어서 ~ES5라고 써놓긴 했지만…<br>아직 지원하는 브라우저가 없는 걸로 안다. (17년 2월 기준)  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 전역 스코프에는 namespace와 namespace2 모듈만이 존재한다.</span></span><br><span class="line"><span class="comment">// func라는 충돌나기 쉬운 네이밍이 전역에 존재하지 않으므로 충돌이 일어나지 않는다.</span></span><br><span class="line"><span class="comment">// 즉 네이밍을 고민할 염려가 조금은 줄어들게 된다. 뭐 그 외에 장점도 많지만...</span></span><br><span class="line"><span class="comment">// script src 태그를 통해 미리 namespace 모듈을 불러온 경우에는 전역에는 변수 namespace가 존재한다.</span></span><br><span class="line"><span class="comment">// || 연산자를 써서 전역에 namespace라는 변수(모듈)가 존재하면 그 모듈을 변수에 할당하고,</span></span><br><span class="line"><span class="comment">// 존재하지 않는다면 빈 객체를 변수에 할당하는 패턴이다.</span></span><br><span class="line"><span class="keyword">const</span> namespace = namespace || &#123;&#125;;</span><br><span class="line">namespace.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> namespace2 = namespace2 || &#123;&#125;;</span><br><span class="line">namespace2.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>함수의 매개변수 기본값 설정(~ES5)<br>ES6를 통해서는 아래와 같은 게 가능하지만,  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> func = <span class="function">(<span class="params">param1 = <span class="number">0</span>, param2 = <span class="string">&#x27;&#x27;</span></span>) =&gt;</span> &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>바벨을 사용할 수 없고, IE 하위 브라우저까지 크로스 브라우징을 하는 환경에서는<br>아래와 같이 처리해줘야한다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// || 뒤에 오는 애가 기본 값이다.</span></span><br><span class="line">  param1 = param1 || <span class="number">0</span>;</span><br><span class="line">  param2 = param2 || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>함수의 인자로 기본값 설정<br>위에서는 함수를 선언할 때 매개변수의 기본값을 설정한 경우지만<br>이 경우는 함수를 호출할 때 인자의 기본값을 설정한 경우이다.<br>둘의 차이는 뭐 없다고 봐도 무방하지 않을까…싶다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> func = <span class="function"><span class="params">age</span> =&gt;</span> <span class="built_in">console</span>.log(age);</span><br><span class="line"><span class="comment">// obj 객체에 age라는 키가 없으므로 undefined를 반환한다.</span></span><br><span class="line"><span class="comment">// undefined는 형변환 했을 때 false로 간주되므로 기본값인 1이 넘어간다.</span></span><br><span class="line">func(obj.age || <span class="number">1</span>); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></li>
+<li><p>함수의 기본 반환값 설정<br>함수의 반환값이 매개 변수에 따라서 오류를 뿜는 경우가 존재한다.<br>그런 오류를 방지하고자 기본값을 설정하곤 하는데 어떤 경우인지 보자.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cntOccurrences = <span class="function">(<span class="params">regExp, str</span>) =&gt;</span> (</span><br><span class="line">    <span class="comment">// 정규표현식과 매치되는 결과가 없어서 null을 반환할 경우</span></span><br><span class="line">    <span class="comment">// null.length는 오류를 반환하므로 기본값으로 빈 배열을 넣어줘서 오류를 방지함.</span></span><br><span class="line">    (str.match(regExp) || []).length</span><br><span class="line">);</span><br><span class="line"><span class="built_in">console</span>.log(cntOccurrences(<span class="regexp">/\d/g</span>, <span class="string">&#x27;asdf&#x27;</span>)); <span class="comment">// 0, 기본값이 없었다면 오류가 난다.</span></span><br></pre></td></tr></table></figure></li>
+<li><p>거짓 기본값 설정하기<br>말이 이상한데…<br>만약 해당 변수가 거짓이라면 더 이상의 판별을 하지 않고자 할 때 쓰면 된다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;q&#x27;</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">// 배열이 숫자로만 이루어진 건지 아닌지 판별하는 함수</span></span><br><span class="line"><span class="keyword">const</span> isNumArr = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> isNum = <span class="literal">true</span>; <span class="comment">// 모든 값이 숫자인지 아닌지 판별하는 flag 변수</span></span><br><span class="line">  arr.forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 만약에 한 번이라도 숫자가 아닌 값이 있었다면</span></span><br><span class="line">    <span class="comment">// 그 아래에 있는 구문들을 실행할 필요가 없으므로</span></span><br><span class="line">    <span class="comment">// return으로 함수를 조기 종료.</span></span><br><span class="line">    <span class="keyword">if</span>(!isNum) <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 현재 값이 숫자인지 판단하여 변수에 저장.</span></span><br><span class="line">    isNum = <span class="built_in">isNaN</span>(v);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> isNum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isNumArr(arr)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>위와 같은 코드가 있을 때 &amp;&amp; 논리 연산자를 쓰면 코드를 줄일 수 있다.<br>퍼포먼스 측면에서는 맞는지 잘 모르겠다…  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;q&#x27;</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">// 배열이 숫자로만 이루어진 건지 아닌지 판별하는 함수</span></span><br><span class="line"><span class="keyword">const</span> isNumArr = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> isNum = <span class="literal">true</span>; <span class="comment">// 모든 값이 숫자인지 아닌지 판별하는 flag 변수</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// &amp;&amp; 연산은 false인 값을 반환하려는 성질이 있는데</span></span><br><span class="line">  <span class="comment">// 둘 다 false이면 앞에 놈을 반환한다.</span></span><br><span class="line">  <span class="comment">// 만약 앞에 놈이 true이면 무조건 뒤에 놈을 반환한다.</span></span><br><span class="line">  <span class="comment">// 일단 false 값을 반환하는지 검사를 돌리다가 한 번이라도 false가 나오면</span></span><br><span class="line">  <span class="comment">// 뒤에 놈이 true여도 한 번 false인 놈은 계속 false로 만들고 싶을 때 쓰면 된다.</span></span><br><span class="line">  arr.forEach(<span class="function"><span class="params">v</span> =&gt;</span> isNum = isNum &amp;&amp; <span class="built_in">isNaN</span>(v));</span><br><span class="line">  <span class="keyword">return</span> isNum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isNumArr(arr)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/13/es-logical-operator/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/02/12/ES5-array-loop-method-break/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/12/ES5-array-loop-method-break/" class="post-title-link" itemprop="url">(ES5) 배열의 순회 메소드에서 break 기능 구현하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-02-12 22:51:05" itemprop="dateCreated datePublished" datetime="2017-02-12T22:51:05+09:00">2017-02-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/ECMAScript/" itemprop="url" rel="index"><span itemprop="name">ECMAScript</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/02/12/ES5-array-loop-method-break/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/12/ES5-array-loop-method-break/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/ES5-array-loop-method-break/thumb.png"><br>이 글은 Outsider 님의 블로그 포스트 중<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.outsider.ne.kr/847">forEach에 break문 대신 some 사용하기</a>를 보고 큰 감명을 받아<br>내가 이해한 내용을 토대로 정리해 본 글이다.</p>
+<h2 id="for-loop"><a href="#for-loop" class="headerlink" title="for loop"></a>for loop</h2><p>for 반복문을 써서 배열을 순회하는 것은 할당, 프로퍼티 참조, 조건 분기 등등의 잡다한 일을 해야한다.<br>이러한 잡다한 일을 실수로 코딩을 잘못하면 원하지 않는 결과가 나오고, 귀찮음이 몰려오기 마련이다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [</span><br><span class="line">  <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">&#x27;q&#x27;</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">3.3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">3.3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">3.3</span>,</span><br><span class="line">  <span class="number">5</span>, <span class="number">6</span>, <span class="number">3.3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">3.3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">3.3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">3.3</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 배열이 숫자로만 이루어져있는지 파악하는 함수</span></span><br><span class="line"><span class="keyword">const</span> isArrNum = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> isNum = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 프로그래머가 실수로 let i = 1;이라고 초기화한다면?</span></span><br><span class="line">  <span class="comment">// 실수로 i&lt;arr.length+1; 이라고 조건식을 잘못 입력한다면?</span></span><br><span class="line">  <span class="comment">// i+=2; 라고 증감식을 잘못 입력한다면?</span></span><br><span class="line">  <span class="comment">// arr[i+1]로 잘못 참조한다면?</span></span><br><span class="line">  <span class="comment">// 이렇게 일일이 초기화, 조건식 지정, 증감식 지정 등등을 일일이 해줘야하므로 귀찮다.</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.length; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">isNaN</span>(arr[i])) &#123; <span class="comment">// 숫자라면</span></span><br><span class="line">      <span class="comment">// 아래 있는 코드는 실행할 필요 없이 다음 요소를 검사해야함.</span></span><br><span class="line">      <span class="comment">// 즉 다음 반복문을 실행.</span></span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 숫자가 아니라면</span></span><br><span class="line">    isNum = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 바로 반복문을 종료해야함.</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> isNum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// q</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(isArrNum(arr));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 사실은 아래와 같이 break와 continue를 쓸 필요도 없는 예제긴 하다.</span></span><br><span class="line"><span class="keyword">const</span> isArrNum2 = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">isNaN</span>(arr[i])) &#123; <span class="comment">// 숫자가 아니라면</span></span><br><span class="line">      <span class="comment">// 반복문 탈출이고 나발이고 return으로 바로 함수를 조기 종료 시키면서</span></span><br><span class="line">      <span class="comment">// false를 반환하게 하면됨.</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 반복문이 무사히 끝났으면 모든 게 숫자였다고 판단하여 true를 반환.</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="continue-기능만-있는-배열-순회-메소드-ES5-IE9"><a href="#continue-기능만-있는-배열-순회-메소드-ES5-IE9" class="headerlink" title="continue 기능만 있는 배열 순회 메소드(ES5, IE9+)"></a>continue 기능만 있는 배열 순회 메소드(ES5, IE9+)</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/12/ES5-array-loop-method-break/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+  </nav>
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">양권성</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://exobud.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>

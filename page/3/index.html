@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon/manifest.json">
+  <meta name="google-site-verification" content="yL1R2eDsKDqjPNaOBKp1usSDw8SQNzaO35svs1LKYWw">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"perfectacle.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="Toss Server Developer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="오늘도 끄적끄적">
+<meta property="og:url" content="https://perfectacle.github.io/page/3/index.html">
+<meta property="og:site_name" content="오늘도 끄적끄적">
+<meta property="og:description" content="Toss Server Developer">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="양권성">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://perfectacle.github.io/page/3/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'ko'
+  };
+</script><script data-ad-client="ca-pub-3881550906962162" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<title>오늘도 끄적끄적</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87795455-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-87795455-1');
+      }
+    </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="오늘도 끄적끄적" type="application/atom+xml">
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">오늘도 끄적끄적</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">느리더라도 꾸준하게</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="양권성" src="/images/avatar/avatar.png">
+  <p class="site-author-name" itemprop="name">양권성</p>
+  <div class="site-description" itemprop="description">Toss Server Developer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">242</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perfectacle" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:perfectacle@gmail.com" title="E-Mail → mailto:perfectacle@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/perfectacle" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/08/15/why-korea-depends-on-interest-rate-us/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/15/why-korea-depends-on-interest-rate-us/" class="post-title-link" itemprop="url">왜 한국은 미국 금리에 의존적일까?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-08-15 10:14:29" itemprop="dateCreated datePublished" datetime="2019-08-15T10:14:29+09:00">2019-08-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EA%B2%BD%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">경제</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/08/15/why-korea-depends-on-interest-rate-us/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/15/why-korea-depends-on-interest-rate-us/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://youtu.be/0LYMTsj_eqc?t=3022">EBS 다큐프라임 자본주의 제1부 돈은 빚이다</a>와<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.youtube.com/channel/UClmxSq4_kJfLtyIY7TycFfw">돌디</a> 님의 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://youtu.be/LzpNvyvTmIE">금리</a>, <a target="_blank" rel="external nofollow noopener noreferrer" href="https://youtu.be/jqeXqLJMYl0?t=590">돈은 가짜다 - 저축만 해서 망하는 이유</a> 영상을 보면 좀 더 많은 인사이트를 쌓을 수 있다.</p>
+<h2 id="왜-한국은-한국-금리에만-의존할-수-없는-걸까"><a href="#왜-한국은-한국-금리에만-의존할-수-없는-걸까" class="headerlink" title="왜 한국은 한국 금리에만 의존할 수 없는 걸까?"></a>왜 한국은 한국 금리에만 의존할 수 없는 걸까?</h2><p>그 이유는 바로 무역 때문이다.<br>대부분의 나라가 무역을 하기 때문에 그 나라의 금리에만 의존할 순 없을 것이다.<br>더군다나 우리 나라는 자원(석유, 나무, 철광석 등등)이 거의 없다.<br>대부분 외국에서 수입에 의존하기 때문이다.<br>이렇게 수출/수입을 할 때 쓰는 돈이 <code>기축통화</code>인데 우리나라의 통화는 기축통화가 아니기 때문에 우리나라의 금리에만 의존할 수가 없는 거다.</p>
+<h3 id="기축통화-우리가-미국-금리에-의존할-수-밖에-없는-이유"><a href="#기축통화-우리가-미국-금리에-의존할-수-밖에-없는-이유" class="headerlink" title="기축통화 - 우리가 미국 금리에 의존할 수 밖에 없는 이유"></a>기축통화 - 우리가 미국 금리에 의존할 수 밖에 없는 이유</h3><p>기축통화는 <code>국제거래에 통용되는 결제 수단</code>으로서 가장 의미있는 돈이 기축통화인데, 현재 기축통화는 미국의 달러($)이다.  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/15/why-korea-depends-on-interest-rate-us/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/08/15/why-central-banks-creates-money/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/15/why-central-banks-creates-money/" class="post-title-link" itemprop="url">왜 중앙은행은 화폐를 발행하는가? (feat. 인플레이션, 디플레이션)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-08-15 01:56:31" itemprop="dateCreated datePublished" datetime="2019-08-15T01:56:31+09:00">2019-08-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EA%B2%BD%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">경제</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/08/15/why-central-banks-creates-money/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/15/why-central-banks-creates-money/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/why-central-banks-creates-money/thumb.jpg" alt="돈 많이 벌고싶다..."></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://youtu.be/0LYMTsj_eqc">EBS 다큐프라임 자본주의 제1부 돈은 빚이다</a>를 보고 나면 더 많은 인사이트를 얻을 수 있다.</p>
+<h2 id="물가는-왜-상승하는가-feat-인플레이션"><a href="#물가는-왜-상승하는가-feat-인플레이션" class="headerlink" title="물가는 왜 상승하는가? (feat. 인플레이션)"></a>물가는 왜 상승하는가? (feat. 인플레이션)</h2><p><img src="/images/why-central-banks-creates-money/demand-and-supply.jpg" alt="수요와 공급의 원칙을 알고 있는가?"></p>
+<p>수요가 늘어나거나 공급이 줄어들면 가격이 올라간다.(공급 부족)<br>예를 들면 참외 농사가 흉년이 일어나서 참외를 먹고 싶은 사람은 전과 같이 10명으로 고정적인데 참외의 갯수가 5개로 확 줄어들은 상황이거나,<br>어느날 참외가 암을 치료해준다는 소문이 돌아 참외는 100개가 있는데 참외를 사려는 사람이 1000명으로 늘어난 상황이다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/15/why-central-banks-creates-money/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/08/15/money-is-debt/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/15/money-is-debt/" class="post-title-link" itemprop="url">돈은 빚이다.</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-08-15 00:08:49" itemprop="dateCreated datePublished" datetime="2019-08-15T00:08:49+09:00">2019-08-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/%EA%B8%B0%ED%83%80/%EA%B2%BD%EC%A0%9C/" itemprop="url" rel="index"><span itemprop="name">경제</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/08/15/money-is-debt/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/15/money-is-debt/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/money-is-debt/thumb.png" alt="돈은 빚이다."></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://youtu.be/0LYMTsj_eqc">EBS 다큐프라임 자본주의 제1부 돈은 빚이다</a>를 보고 나면 더 많은 인사이트를 얻을 수 있다.</p>
+<h2 id="돈은-어떻게-생성되는가"><a href="#돈은-어떻게-생성되는가" class="headerlink" title="돈은 어떻게 생성되는가?"></a>돈은 어떻게 생성되는가?</h2><p>개인이 돈을 만드는 가장 쉬운 방법은 돈을 버는 것이다.<br>좀 더 큰 관점에서 보면 돈 자체를 찍어내는 은행에서 돈을 만들어야 진정한 의미의 돈이 생성되는 것 같다.<br>하지만 이렇게 은행에서 찍어내는 돈은 실제 <code>통화량(시중에 유통되고 있는 화폐의 양)</code>의 극히 일부이다.<br>대부분의 돈은 <code>눈에 보이지 않는다.</code><br>즉 대부분의 돈은 <code>은행에 존재</code>한다.</p>
+<h3 id="최초의-은행"><a href="#최초의-은행" class="headerlink" title="최초의 은행"></a>최초의 은행</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/15/money-is-debt/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/06/30/java-8-lambda-capturing/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/06/30/java-8-lambda-capturing/" class="post-title-link" itemprop="url">(Java) 람다 캡처링과 final 제약조건</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-06-30 14:18:57" itemprop="dateCreated datePublished" datetime="2019-06-30T14:18:57+09:00">2019-06-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/06/30/java-8-lambda-capturing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/30/java-8-lambda-capturing/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/java-8-lambda-capturing/thumb.png"></p>
+<p>람다의 바디에서는 파라미터 말고 바디 외부에 있는 변수를 참조할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaCapturing</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> a = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> Runnable r = () -&gt; System.out.println(a);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> Runnable r2 = () -&gt; System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 람다 시그니처의 <strong>파라미터로 넘겨진 변수가 아닌 외부에서 정의된 변수</strong>를 **자유 변수(Free Variable)**라고 부른다.<br>또한 람다 바디에서 <strong>자유 변수를 참조하는 행위</strong>를 유식한 말로 **람다 캡처링(Lambda Capturing)**이라고 부른다.</p>
+<h2 id="람다-캡처링의-제약-조건"><a href="#람다-캡처링의-제약-조건" class="headerlink" title="람다 캡처링의 제약 조건"></a>람다 캡처링의 제약 조건</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/06/30/java-8-lambda-capturing/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/06/23/auto-scanning-annotation-based-bean/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/06/23/auto-scanning-annotation-based-bean/" class="post-title-link" itemprop="url">어노테이션이 달린 빈의 자동 스캔 (Without Spring Boot)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-06-23 12:08:10" itemprop="dateCreated datePublished" datetime="2019-06-23T12:08:10+09:00">2019-06-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Back-end/" itemprop="url" rel="index"><span itemprop="name">Back-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Back-end/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/06/23/auto-scanning-annotation-based-bean/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/23/auto-scanning-annotation-based-bean/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/auto-scanning-annotation-based-bean/thumb.png"></p>
+<p>스프링 부트부터 접한 스프링 알못이라 스프링에 대해 공부를 하다보니 너무나 모르고 있는 게 많아서 정리해봤다.<br>되게 간단한 건데 스프링 부트부터 접하면 몰라도 코드 짜는데는 문제가 없지만 개인적으로는 알고 있으면 너무나 좋은 내용같다.</p>
+<h2 id="어노테이션-없이-빈-설정"><a href="#어노테이션-없이-빈-설정" class="headerlink" title="어노테이션 없이 빈 설정"></a>어노테이션 없이 빈 설정</h2><p>스프링이 관리하는 객체인 빈으로 생성하기 위해서 아래와 같은 어노테이션이 필수<strong>인 줄 알았</strong>다.<br>@Component, @Configuration, @Bean, @Service, @Controller, @Repository</p>
+<p>하지만 직접 코딩을 해보니 이 생각은 거짓이었다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/06/23/auto-scanning-annotation-based-bean/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/06/11/aws-sg-trobuleshooting/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/06/11/aws-sg-trobuleshooting/" class="post-title-link" itemprop="url">(Troubleshooting) 내 로컬에서는 잘 되는데...? (내로잘)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-06-11 22:28:23" itemprop="dateCreated datePublished" datetime="2019-06-11T22:28:23+09:00">2019-06-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Troubleshooting/" itemprop="url" rel="index"><span itemprop="name">Troubleshooting</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/06/11/aws-sg-trobuleshooting/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/11/aws-sg-trobuleshooting/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/aws-sg-trobuleshooting/thumb.jpg" alt="미리보는 교훈: 남탓을 하지 말자"></p>
+<p><img src="/images/aws-sg-trobuleshooting/reporter.png" alt="오늘도 어김없이 외부를 통해 장애가 제보되었다."><br><img src="/images/aws-sg-trobuleshooting/work-on-my-local.png" alt="하지만 내 로컬에서는 잘 됐다. (이럴 때 쓰는 말이 내로잘, 내 로컬에서는 잘 되는데...?)"><br>내 PC에서는 잘 되는데 버그 제보자가 직접 모바일 웹에서 안 되는 걸 보여줬다.<br>그리고 내 모바일에서도 해봤고, 다른 사람들의 모바일에서도 전부 안 됐다. (안드로이드, iOS에서 크롬, 사파리, 삼성 인터넷 가릴 것 없이 다 안 됐다.)  </p>
+<p>PC에서는 잘 되고, 모바일에서는 안 된다… 나는 당연히 프론트 이슈로 여겼다.<br>혹시 서버 쪽 이슈일까봐 액세스 로그를 모니터링해보니 헬스 체크 이외에 로그가 안 찍히길래 자바스크립트 어딘가에서 오류가 나서 API 호출도 못 하는 거라고 확신했다.  </p>
+<p>프론트 개발자 분께서 모바일 브라우저 디버깅을 위해 세팅도 다 했는데 브라우저의 콘솔을 보니 에러 로그가 안 찍히는 것이었다.<br><img src="/images/aws-sg-trobuleshooting/charles.png" alt="그리고 혹시나 싶어서 프론트 개발자 분께서 Charles까지 깔아서 확인도 해주셨는데 패킷도 날아가지 않았다.">  </p>
+<p>귀신이 곡할 노릇이라 환경을 완전히 통일시키기 위해 도커로 띄워야하나… 이런 고민까지 하고 있던 찰나에<br>프론트 개발자 분께서 내가 접속한 와이파이(사내 와이파이)와 자신이 모바일로 접속한 와이파이(게스트용 와이파이)의 차이점을 발견하였다.<br>(사내 정책 때문에 모바일에서는 게스트용 와이파이를 쓰고 있었다.)  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/06/11/aws-sg-trobuleshooting/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/06/11/thread-dump-analyze/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/06/11/thread-dump-analyze/" class="post-title-link" itemprop="url">(Troubleshooting) Thread Dump 분석 도전기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-06-11 01:19:36" itemprop="dateCreated datePublished" datetime="2019-06-11T01:19:36+09:00">2019-06-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Troubleshooting/" itemprop="url" rel="index"><span itemprop="name">Troubleshooting</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/06/11/thread-dump-analyze/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/11/thread-dump-analyze/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/thread-dump-analyze/thumb.png" alt="쓰레드 덤프도 처음인지라 하면서 뭔가 두려웠다."></p>
+<h2 id="사건의-시작"><a href="#사건의-시작" class="headerlink" title="사건의 시작"></a>사건의 시작</h2><p><img src="/images/thread-dump-analyze/alert.png" alt="평화로운 어느날, Alert Manager의 역습"><br>갑자기 Nginx가 Down 됐다는 알림이 와서 해당 서버로 접속해보니 Nginx 서비스는 정상적으로 떠있고…<br>curl도 때려보고, 브라우저에서 직접 URL로 접속해봤을 때 문제가 없었다.  </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># blackbox exporter configuration</span></span><br><span class="line"><span class="attr">modules:</span></span><br><span class="line">  <span class="attr">http_health:</span></span><br><span class="line">    <span class="attr">prober:</span> <span class="string">http</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">method:</span> <span class="string">GET</span></span><br><span class="line">      <span class="attr">valid_status_codes:</span> [<span class="number">200</span>]</span><br><span class="line">      <span class="attr">preferred_ip_protocol:</span> <span class="string">&quot;ip4&quot;</span></span><br><span class="line">      <span class="attr">ip_protocol_fallback:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>80포트에 대해서 http 요청을 보냈을 때 5초 이내에 200 OK가 안 오면 알람을 발생시키게 했는데 내가 테스트 해 본 바로는 아무런 문제도 없었다.<br>(일단 5초라는 관대한 시간으로 걸어놓은 것도 문제였고, 내가 간단히 메인 페이지만 몇 번 들락날락 해본 것도 문제였다.)</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/06/11/thread-dump-analyze/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/05/29/redis-monitoring/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/05/29/redis-monitoring/" class="post-title-link" itemprop="url">(Troubleshooting) 레디스 사망일기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-05-29 03:00:50" itemprop="dateCreated datePublished" datetime="2019-05-29T03:00:50+09:00">2019-05-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Troubleshooting/" itemprop="url" rel="index"><span itemprop="name">Troubleshooting</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/05/29/redis-monitoring/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/29/redis-monitoring/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/redis-monitoring/thumb.png" alt="점점 산으로 가는 그래프..."></p>
+<h2 id="사건의-발단"><a href="#사건의-발단" class="headerlink" title="사건의 발단"></a>사건의 발단</h2><p>사내에서 사용하는 어드민(이하 <strong>어드민 A</strong>)/외부에서 사용하는 어드민(이하 <strong>어드민 B</strong>)이 사망하는 사례가 속출하였다.<br>그 시점은 내가 새롭게 서버를 옮긴 이후부터 발생했다.<br>내가 서버를 옮긴 것과 이 일이 관련이 없다고 생각했지만,<br>우선 내가 서버를 옮긴 이후에 발생한 사건이기도 해서 부검을 통해 사인을 밝혀내는 게 우선이었다.</p>
+<h2 id="왜-사망했나"><a href="#왜-사망했나" class="headerlink" title="왜 사망했나"></a>왜 사망했나</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.dao.QueryTimeoutException: Redis command timed out; nested exception is com.lambdaworks.redis.RedisCommandTimeoutException: Command timed out</span><br><span class="line">	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:66)</span><br><span class="line">	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/29/redis-monitoring/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/05/11/jvm-gc-advanced/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/05/11/jvm-gc-advanced/" class="post-title-link" itemprop="url">(JVM) Garbage Collection Advanced</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-05-11 16:05:47" itemprop="dateCreated datePublished" datetime="2019-05-11T16:05:47+09:00">2019-05-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/05/11/jvm-gc-advanced/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/11/jvm-gc-advanced/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/jvm-gc-advanced/thumb.jpeg" alt="출처: https://medium.com/@iacomini.riccardo/hadoop-namenode-garbage-collector-tuning-7f6a029e9012"></p>
+<h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p><img src="/images/jvm-gc-advanced/optimizing-java.jpeg"><br>이 글은 이일웅 님께서 번역하신 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.naver.com/bookdb/book_detail.nhn?bid=14796595">자바 최적화</a>란 책을 읽던 도중 공부한 내용을 정리한 글입니다.<br>절대 해당 책의 홍보는 아니며 좋은 책을 써준 사람과 번역해주신 분께 진심으로 감사하는 마음에 썼습니다.<br>이 글을 읽어보시기 전에 <a href="/2019/05/07/jvm-gc-basic/">Garbage Collection Basic</a> 편을 읽어보시면 더 도움이 될 것입니다 :) </p>
+<h2 id="Mark-and-Sweep-Algorithm"><a href="#Mark-and-Sweep-Algorithm" class="headerlink" title="Mark and Sweep Algorithm"></a>Mark and Sweep Algorithm</h2><p>Basic 편에서는 간단하게 Young/Old Generation과 Mark and Sweep 알고리듬에 대해서 간단하게 알아보았다.<br>해당 알고리듬을 사용하는 GC를 <strong>scavenge garbage collector</strong>라고도 부른다.<br>Mark and Sweep Algorith의 단점은 GC를 수행하는 동안 Stop the World(이하 STW)가 발생한다는 것이다.<br><img src="/images/jvm-gc-advanced/stop-the-world.png" alt="출처: https://www.youtube.com/watch?v=_cNXjmuhCCc"> </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/11/jvm-gc-advanced/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/05/07/jvm-gc-basic/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/05/07/jvm-gc-basic/" class="post-title-link" itemprop="url">(JVM) Garbage Collection Basic</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-05-07 01:43:52" itemprop="dateCreated datePublished" datetime="2019-05-07T01:43:52+09:00">2019-05-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/05/07/jvm-gc-basic/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/07/jvm-gc-basic/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/jvm-gc-basic/thumb.png" alt="PermGen은 자바 8에서 Metaspcae로 대체됐다. 이미지 출처: https://help.sap.com/">  </p>
+<h2 id="읽기-전-주의사항-그림을-보는-법"><a href="#읽기-전-주의사항-그림을-보는-법" class="headerlink" title="읽기 전 주의사항(그림을 보는 법)"></a>읽기 전 주의사항(그림을 보는 법)</h2><p>그림을 그리다보니 Stack에 있는 동그라미 모양과 힙 메모리에 있는 동그라미 모양이 동일한 그림들이 많이 있습니다.<br>이건 <strong>둘이 동일한 메모리를 의미하는 게 아니라 그냥 스택에서 힙을 참조</strong>한다는 걸 그린 건데,<br>사실 둘의 모양을 다르게 그려야하는데 아무 생각없이 복붙해서 그리다보니 이렇게 그리게 되었고…<br>되돌리기에는 너무 많이 그림을 그려놔서(히스토리 추적이 안 되게 막 그려서…) 귀챠니즘으로 인해 그림을 수정하지 않았습니다.<br>이 점 참고하셔서 보시길 바랍니다!</p>
+<h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p><img src="/images/jvm-gc-basic/optimizing-java.jpeg"><br>이 글은 이일웅 님께서 번역하신 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.naver.com/bookdb/book_detail.nhn?bid=14796595">자바 최적화</a>란 책을 읽던 도중 공부한 내용을 정리한 글입니다.<br>절대 해당 책의 홍보는 아니며 좋은 책을 써준 사람과 번역해주신 분께 진심으로 감사하는 마음에 썼습니다. </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/07/jvm-gc-basic/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+  </nav>
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">양권성</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://exobud.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/favicon/manifest.json">
+  <meta name="google-site-verification" content="yL1R2eDsKDqjPNaOBKp1usSDw8SQNzaO35svs1LKYWw">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"perfectacle.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="들어가기에 앞서이 포스트는 (Webpack 2) 트리 쉐이킹을 해보자!의 후속작이다.따라서 해당 포스트를 읽고 예제를 진행한 후에 보는 걸 추천한다.또한 내가 리액트 말고 할 줄 아는 게 별로 없어서 예제를 리액트로만 진행하다보니혹시 헷갈리면 다른 라이브러리로 진행해보길 바란다.   복습우리는 지난 포스트에서 리액트 라우터를 트리 쉐이킹하였다.아래와 같이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(Webpack 2) 트리 쉐이킹을 똑똑하게 해보자!">
+<meta property="og:url" content="https://perfectacle.github.io/2017/04/12/webpack2-smart-tree-shaking/index.html">
+<meta property="og:site_name" content="오늘도 끄적끄적">
+<meta property="og:description" content="들어가기에 앞서이 포스트는 (Webpack 2) 트리 쉐이킹을 해보자!의 후속작이다.따라서 해당 포스트를 읽고 예제를 진행한 후에 보는 걸 추천한다.또한 내가 리액트 말고 할 줄 아는 게 별로 없어서 예제를 리액트로만 진행하다보니혹시 헷갈리면 다른 라이브러리로 진행해보길 바란다.   복습우리는 지난 포스트에서 리액트 라우터를 트리 쉐이킹하였다.아래와 같이">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://perfectacle.github.io/images/webpack2-smart-tree-shaking/thumb.png">
+<meta property="article:published_time" content="2017-04-12T00:10:25.000Z">
+<meta property="article:modified_time" content="2020-08-23T16:18:44.874Z">
+<meta property="article:author" content="양권성">
+<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="ES2015">
+<meta property="article:tag" content="npm">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Webpack2">
+<meta property="article:tag" content="babel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://perfectacle.github.io/images/webpack2-smart-tree-shaking/thumb.png">
+
+
+<link rel="canonical" href="https://perfectacle.github.io/2017/04/12/webpack2-smart-tree-shaking/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ko'
+  };
+</script><script data-ad-client="ca-pub-3881550906962162" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<title>(Webpack 2) 트리 쉐이킹을 똑똑하게 해보자! | 오늘도 끄적끄적</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87795455-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-87795455-1');
+      }
+    </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="오늘도 끄적끄적" type="application/atom+xml">
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">오늘도 끄적끄적</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">느리더라도 꾸준하게</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0%EC%97%90-%EC%95%9E%EC%84%9C"><span class="nav-number">1.</span> <span class="nav-text">들어가기에 앞서</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B3%B5%EC%8A%B5"><span class="nav-number">2.</span> <span class="nav-text">복습</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8B%A4%EC%8A%B5"><span class="nav-number">3.</span> <span class="nav-text">실습</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="양권성" src="/images/avatar/avatar.png">
+  <p class="site-author-name" itemprop="name">양권성</p>
+  <div class="site-description" itemprop="description">Toss Server Developer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">242</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perfectacle" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:perfectacle@gmail.com" title="E-Mail → mailto:perfectacle@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/perfectacle" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;perfectacle" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/04/12/webpack2-smart-tree-shaking/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          (Webpack 2) 트리 쉐이킹을 똑똑하게 해보자!
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-04-12 09:10:25" itemprop="dateCreated datePublished" datetime="2017-04-12T09:10:25+09:00">2017-04-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/04/12/webpack2-smart-tree-shaking/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/12/webpack2-smart-tree-shaking/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/webpack2-smart-tree-shaking/thumb.png"></p>
+<h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p>이 포스트는 <a href="/2017/03/12/webpack2-tree-shaking/">(Webpack 2) 트리 쉐이킹을 해보자!</a>의 후속작이다.<br>따라서 해당 포스트를 읽고 예제를 진행한 후에 보는 걸 추천한다.<br>또한 내가 리액트 말고 할 줄 아는 게 별로 없어서 예제를 리액트로만 진행하다보니<br>혹시 헷갈리면 다른 라이브러리로 진행해보길 바란다.  </p>
+<h2 id="복습"><a href="#복습" class="headerlink" title="복습"></a>복습</h2><p>우리는 지난 포스트에서 리액트 라우터를 트리 쉐이킹하였다.<br>아래와 같이 기존에 쓰던 방식대로 진행하면 쓰지도 않는 모듈들이 전부 번들링되는 참사가 발생한다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Router, Route, hashHistory&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>티끌 모아 태산이라고 우리의 앱이 쓰지도 않는 모듈들로 눈덩이처럼 불어날지도 모른다.<br>따라서 우리는 아래와 같이 해주었다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;react-router/es/Router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Route <span class="keyword">from</span> <span class="string">&#x27;react-router/es/Route&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> hashHistory <span class="keyword">from</span> <span class="string">&#x27;react-router/es/hashHistory&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>매우 귀찮아보이지 않는가?<br>패키지가 늘어나고, 불러올 모듈들이 증가하면 한 줄 한줄 일일이 입력해줘야한다.  </p>
+<h2 id="실습"><a href="#실습" class="headerlink" title="실습"></a>실습</h2><p>그럼 이제 이를 어떻게 해결할지 간단한 예제를 만들자.<br>프로젝트 폴더를 만들고 package.json 파일을 만들자.<br>그리고 다음과 같은 패키지들을 설치해준다.  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i -S react react-dom react-router@^3.x</span><br><span class="line">npm i -D babel-core babel-preset-env babel-preset-react babel-loader babel-plugin-transform-imports</span><br></pre></td></tr></table></figure>
+
+<p><code>babel-plugin-transform-imports</code> 요 녀석이 바로 핵심이다.  </p>
+<p>프로젝트 폴더에 .babelrc(바벨 설정 파일)을 만들어주자.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;presets&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;env&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;browsers&quot;</span>: [<span class="string">&quot;last 2 versions&quot;</span>, <span class="string">&quot;&gt; 10%&quot;</span>, <span class="string">&quot;ie 9&quot;</span>],</span><br><span class="line">        <span class="attr">&quot;modules&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;react&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;plugins&quot;</span>: [</span><br><span class="line">    [<span class="string">&quot;transform-imports&quot;</span>, &#123;</span><br><span class="line">      <span class="attr">&quot;react-router&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;transform&quot;</span>: <span class="string">&quot;react-router/es/$&#123;member&#125;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;preventFullImport&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>플러그인 부분에 내용에 주목하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    <span class="comment">// 배열의 첫 번째 요소로 배열(transform-imports 플러그인 정보를 담은)이 옴.</span></span><br><span class="line">    <span class="comment">// 그 배열 안에는 transform-imports 플러그인 임을 알려주는 요소가 첫 번째로 들어와있고,</span></span><br><span class="line">    <span class="comment">// 두 번째 요소로 객체가 들어오는데 이는 react-router 모듈에 대한 객체이다.</span></span><br><span class="line">    <span class="comment">// transform 프로퍼티에서 어떤 폴더를 기점으로 모듈들을 일일이 불러올지 기술했다고 보면 될 것 같다.</span></span><br><span class="line">    <span class="comment">// preventFullImport, 쓰지도 않는 녀석은 불러오지 않는 걸(트리 쉐이킹) true로 지정했다.</span></span><br><span class="line">    [<span class="string">&quot;transform-imports&quot;</span>, &#123;</span><br><span class="line">      <span class="string">&quot;react-router&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;transform&quot;</span>: <span class="string">&quot;react-router/es/$&#123;member&#125;&quot;</span>,</span><br><span class="line">        <span class="string">&quot;preventFullImport&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js(웹팩 설정 파일)도 만들어주자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">&#x27;./index.js&#x27;</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    path: <span class="string">&#x27;./&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      <span class="comment">// 사실 아래와 같이만 써도 트리 쉐이킹이 된다.</span></span><br><span class="line">      <span class="comment">// compress: true</span></span><br><span class="line">      compress: &#123;</span><br><span class="line">        <span class="comment">// warnings: false, // 콘솔 창에 출력되는 게 보기 귀찮다면 요 놈을 주석 제거를 하면 된다.</span></span><br><span class="line">        unused: <span class="literal">true</span> <span class="comment">// 요 놈이 핵심</span></span><br><span class="line">      &#125;,</span><br><span class="line">      mangle: <span class="literal">false</span>,    <span class="comment">// DEMO ONLY: Don&#x27;t change variable names.(난독화)</span></span><br><span class="line">      beautify: <span class="literal">true</span>,   <span class="comment">// DEMO ONLY: Preserve whitespace (가독성 좋게 함)</span></span><br><span class="line">      output: &#123;</span><br><span class="line">        comments: <span class="literal">true</span>  <span class="comment">// DEMO ONLY: Helpful comments (주석 삭제 안 함)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    <span class="comment">// 웹팩 1에서는 loaders를 썼지만 2에선 rules</span></span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        <span class="comment">// 쿼리가 필요한 로더는 loader로 써줘야함.</span></span><br><span class="line">        <span class="comment">// 쿼리가 필요 없는 로더는 use로 써도 된다.</span></span><br><span class="line">        <span class="comment">// 웹팩 2에선 babel-loader와 같이 -loader 생략이 불가능해졌다.</span></span><br><span class="line">        use: <span class="string">&#x27;babel-loader&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic, see https://github.com/webpack/loader-utils/issues/56</span></span><br><span class="line"><span class="comment">// parseQuery() will be replaced with getOptions() in the next major version of loader-utils.</span></span><br><span class="line"><span class="comment">// 위와 같이 로더 개발자를 위한 로그가 뜨는데 보기 싫다면 주석을 제거하면 된다.</span></span><br><span class="line"><span class="comment">// process.noDeprecation = true;</span></span><br></pre></td></tr></table></figure>
+
+<p>index.html도 만들어주자.  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;ko&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>엔트리(index.js) 파일도 만들어주자.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;render&#125; <span class="keyword">from</span> <span class="string">&#x27;react-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Router, Route, hashHistory&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Comp = <span class="function">() =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>하이<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span>;</span><br><span class="line"></span><br><span class="line">render(</span><br><span class="line">  &lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">    &lt;Route path=<span class="string">&quot;/&quot;</span> component=&#123;Comp&#125; /&gt;</span><br><span class="line">  &lt;/Router&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&#x27;app&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>터미널을 키고 아래와 같이 타이핑해주자.  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/webpack/bin/webpack.js</span><br></pre></td></tr></table></figure>
+
+<p>그리고나서 bundle.js 파일을 뒤져봐도 browserHistory에 대한 내용을 찾을 수 없다.<br>즉, 모듈 별로 일일이 불러오지 않고도 트리 쉐이킹을 할 수 있게 된 것이다!<br>물론 요렇게 해도 안 되는 녀석들도 있는 것 같다.<br>아마 웹팩 2가 나오기 전에 만들어진 모듈이거나<br>모듈 간에 의존성이 너무 높아서 하나만 불러와도 다른 모듈들까지 불러오지 않는 이상<br>사용이 불가능한 모듈인 경우에 그런 것 같다.</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2017/03/12/webpack2-tree-shaking/" rel="bookmark">(Webpack 2) 트리 쉐이킹을 해보자!</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2017/03/13/webpack2-code-splitting/" rel="bookmark">(Webpack 2) 코드를 분할해보자!</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2016/11/11/Babel-ES6-with-IE8/" rel="bookmark">(Babel) ES6를 IE8에서도 써보자</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2017/05/01/async-to-sync/" rel="bookmark">(자작) async-to-sync (자바스크립트 비동기 함수 헬퍼)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2017/04/20/webpack2-escape-relative-path-hell/" rel="bookmark">(Webpack 2) 상대경로 헬파티에서 탈출하기</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ES6/" rel="tag"># ES6</a>
+              <a href="/tags/ES2015/" rel="tag"># ES2015</a>
+              <a href="/tags/npm/" rel="tag"># npm</a>
+              <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+              <a href="/tags/Webpack2/" rel="tag"># Webpack2</a>
+              <a href="/tags/babel/" rel="tag"># babel</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/04/04/js-promise-param/" rel="prev" title="(ES6) Promise에 파라미터를 넘겨서 사용해보자">
+                  <i class="fa fa-chevron-left"></i> (ES6) Promise에 파라미터를 넘겨서 사용해보자
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/16/ES6-Symbol/" rel="next" title="(ES6) Symbol">
+                  (ES6) Symbol <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">양권성</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://exobud.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://perfectacle.github.io/2017/04/12/webpack2-smart-tree-shaking/";
+    this.page.identifier = "2017/04/12/webpack2-smart-tree-shaking/";
+    this.page.title = "(Webpack 2) 트리 쉐이킹을 똑똑하게 해보자!";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://exobud.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
