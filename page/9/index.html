@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">198</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,117 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/09/23/Spring-boot-gradle-profile/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/09/23/Spring-boot-gradle-profile/" class="post-title-link" itemprop="url">(Spring Boot) Gradle의 Profile(dev/production)을 구분지어보자.</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-09-23 09:06:20" itemprop="dateCreated datePublished" datetime="2017-09-23T09:06:20+09:00">2017-09-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Back-end/" itemprop="url" rel="index"><span itemprop="name">Back-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Back-end/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/09/23/Spring-boot-gradle-profile/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/23/Spring-boot-gradle-profile/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/Spring-boot-gradle-profile/thumb.png">  </p>
+<p>메이븐은 기본적으로 빌드할 때 프로필을 지정할 수 있는 것 같은데 gradle은 직접 삽질을 하면서 깨달았다.<br>다음의 글들을 보고 Spring boot 1.5.7과 Gradle 3.x(아마)? 에 맞게, 내 입맛에 맞게 각색해보았다.  </p>
+<ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://osozaki.tistory.com/14">Gradle 배포 환경 별 설정파일 분리</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="http://yookeun.github.io/java/2016/04/11/gradle-packing/">Gradle에서 서버별 패키징 하기</a></li>
+</ul>
+<h2 id="Profile-구성하기"><a href="#Profile-구성하기" class="headerlink" title="Profile 구성하기"></a>Profile 구성하기</h2><p>기본적인 스프링 부트 프로젝트는 다음과 같은 구조를 가질 것이다.  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/09/23/Spring-boot-gradle-profile/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1220,119 +1331,6 @@
 
 <p>봄의 향그러운 느낌을 한껏 품은 비트다.<br>들으면 잠이 쏟아질 것 같지만 1시간을 넘게 들어도 잠이 안 올 때는 잘 안 온다.  </p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/08/19/java-vs-javascript/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/08/19/java-vs-javascript/" class="post-title-link" itemprop="url">자바 vs 자바스크립트</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2017-08-19 20:43:58" itemprop="dateCreated datePublished" datetime="2017-08-19T20:43:58+09:00">2017-08-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/ECMAScript/" itemprop="url" rel="index"><span itemprop="name">ECMAScript</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/08/19/java-vs-javascript/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/19/java-vs-javascript/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/images/java-vs-javascript/thumb.png">  </p>
-<p>이 글은 자바와 자바스크립트를 혼동하는 사람, 차이점이 궁금한 사람 등을 위하여 쓴 글입니다.<br>또한 자바스크립트는 다른 언어에 비해 어떤 단점이 있으며 그 단점들을 어떻게 극복해야할지에 대해 다뤄봤습니다.  </p>
-<p>하고 싶은 말 세 줄 요약.  </p>
-<ol>
-<li>자바스크립트 !== 자바(자바 != 자바스크립트), 자바와 자바스크립트는 같지 않다.<br>두 언어 간에는 접점이 크지 않고, 자바스크립트는 자바의 인기에 편승할 목적(마케팅 목적)으로 이름을 지은 것 뿐입니다.  </li>
-<li>자바 커뮤니티 가서 자바스크립트 질문하거나 자바스크립트 커뮤니티 가서 자바 질문을 하는 건 자제해주세요.<br>하지 말라는 건 아닌데 질문자 분께서 원하시는 답(틀린 답을 얻을 수도 있고), 양질의 답을 얻을 가능성, 그리고 빠른 응답을 받기가 힘드실 수 있습니다.  </li>
-<li>제발 자바 스크립트(Java Script)라고 적어서 혼란을 초래하지 말아주세요.<br>제발 제발 부탁드립니다. 가끔 보면 화(…)가 날 때도 있습니다.<br>위와 같이 쓰시는 분들 때문에 이런 혼란이 더 초래되는 것 같습니다.<br>새로 배우시는 분들께 잘못된 인식을 심어주는 것도 굉장히 위험하다고 보니 제발 부탁드리겠습니다.</li>
-</ol>
-<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/08/19/java-vs-javascript/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

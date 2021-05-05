@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">198</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,118 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2020/06/11/how-to-remove-instanceof/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/06/11/how-to-remove-instanceof/" class="post-title-link" itemprop="url">(TDD) 클래스의 명시적인 타입 검사를 제거하는 방법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2020-06-11 17:30:48" itemprop="dateCreated datePublished" datetime="2020-06-11T17:30:48+09:00">2020-06-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Study/" itemprop="url" rel="index"><span itemprop="name">Study</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/06/11/how-to-remove-instanceof/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/11/how-to-remove-instanceof/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.naver.com/bookdb/book_detail.nhn?bid=7443642">TDD By Example</a> 책을 보다가 감명 받은 부분을 정리해봤다.<br>기본적으로 아래 4가지 원칙을 따라 진행한다.</p>
+<ol>
+<li>Red - <strong>실패</strong>하는 <strong>작은</strong> 테스트를 작성(최초에는 컴파일 조차 되지 않음)</li>
+<li>Green - <strong>빨리</strong> 테스트가 <strong>통과</strong>하게 끔 수정(이를 위해선 어떠한 <strong>죄악</strong>도 용서됨)</li>
+<li>Refactoring - 모든 <strong>중복</strong>을 <strong>제거</strong>(2번에서 수행한 죄악들을 청산)</li>
+</ol>
+<p>해당 포스트는 프랑(CHF, 스위스 통화)을 달러($)로 변환하는 간단한 테스트를 작성하는 것부터 시작한다.</p>
+<h2 id="프랑에서-달러로-변환하기"><a href="#프랑에서-달러로-변환하기" class="headerlink" title="프랑에서 달러로 변환하기"></a>프랑에서 달러로 변환하기</h2><p>아래와 같은 간단한 코드들을 이번 예제에서 사용해보자.  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/11/how-to-remove-instanceof/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1222,114 +1334,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/08/23/exit-yanolja-feat-leisureq/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/08/22/hexo-theme-next/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/08/22/hexo-theme-next/" class="post-title-link" itemprop="url">(Hexo) NexT 테마</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2019-08-22 15:38:15" itemprop="dateCreated datePublished" datetime="2019-08-22T15:38:15+09:00">2019-08-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/%EA%B8%B0%ED%83%80/" itemprop="url" rel="index"><span itemprop="name">기타</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/%EA%B8%B0%ED%83%80/%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88/" itemprop="url" rel="index"><span itemprop="name">잡동사니</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/08/22/hexo-theme-next/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/22/hexo-theme-next/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Static-Page-Blog-테마-선정"><a href="#Static-Page-Blog-테마-선정" class="headerlink" title="Static Page Blog 테마 선정"></a>Static Page Blog 테마 선정</h2><p>Static Page로 만들어진 블로그들은 테마가 굉장히 중요하다.<br>네이버나 티스토리에는 있는 기본적인 기능들이 없는 테마들이 상당히 많다. (검색, 카테고리, 태그, 페이지네이션 등등)<br>따라서 디자인만 보고 골랐다가 커스터마이징하느라 시간을 날리기 십상이기 때문에 디자인과 기능 사이에 어느정도 절충안을 가지고 골라야한다.  </p>
-<p><img src="/images/hexo-theme-next/hueman.png"><br>나는 이전에 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/ppoffice/hexo-theme-hueman">Hueman</a> 테마를 살짝 커스터마이징해서 사용했다.<br>검색이나 카테고리, 메뉴 등등의 기능은 좋았지만 디자인이 좀 구려보였다.<br>다소 아쉽긴 했지만 블로그의 본질은 <strong>글쓰기</strong>이기 때문에 좀 더 가치있는 일에 집중을 하고 싶어서 큰 불만없이 사용하고 있었다.</p>
-<p><img src="/images/hexo-theme-next/pork-cutlet.jpeg" alt="넘나 맛있는 내사랑 돈까스를 매주 공짜로 먹을 수만 있다면..."><br>하지만 욕심이 생겨서 구글 애드센스를 통해 조그만 수익이라도 창출해보고 싶었다.<br>그러나 번번히 정책에 부합하지 않는다는 답변만 받았다.<br>그러다보니 ‘애드센스 다느라 뻘짓할 시간에 공부해서 연봉 올리는 게 더 낫겠다’는 판단이 들었다.</p>
-<h2 id="왜-NexT-테마로-바꾸는가"><a href="#왜-NexT-테마로-바꾸는가" class="headerlink" title="왜 NexT 테마로 바꾸는가?"></a>왜 NexT 테마로 바꾸는가?</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/08/22/hexo-theme-next/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>

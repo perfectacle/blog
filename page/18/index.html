@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">198</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,115 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/01/24/Java-study-006day/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/01/24/Java-study-006day/" class="post-title-link" itemprop="url">(Java) 자바의 정석 3판 006일차 - 배열</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-01-24 10:17:58" itemprop="dateCreated datePublished" datetime="2017-01-24T10:17:58+09:00">2017-01-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/01/24/Java-study-006day/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/24/Java-study-006day/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/Java-study-006day/thumb.png"></p>
+<h2 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h2><p>Java에서는 길이가 0인 배열의 선언도 가능하다.<br>또한 길이는 int 범위의 양의 정수이다.  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 둘 다 가능하지만 후자가 C/C++에서 먹히는 스타일이라 이식성이 높다고 생각한다.</span></span><br><span class="line">        <span class="keyword">int</span>[] num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">        <span class="keyword">boolean</span> flag[] = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 배열을 초기화하지 않으면 기본값으로 초기화 돼서 나온다.</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;num.length; i++) System.out.println(num[i]); <span class="comment">// 0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;flag.length; i++) System.out.println(flag[i]); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> num2[] = <span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">1.1</span>, <span class="number">4.5</span>&#125;; <span class="comment">// 선언과 동시에 초기화.</span></span><br><span class="line">        <span class="keyword">double</span> num3[] = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">5</span>]&#123;<span class="number">1.1</span>, <span class="number">4.5</span>&#125;; <span class="comment">// 길이를 지정해주면 오류가 난다.</span></span><br><span class="line">        <span class="keyword">double</span> num4[] = &#123;<span class="number">1.5</span>, <span class="number">3.14</span>, <span class="number">15</span>&#125;; <span class="comment">// 선언과 동시에 초기화 할 때는 new 연산자를 뺄 수 있다.</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 선언과 초기화를 따로 할 때는 new 연산자를 써서 할당까지 해주어야 한다.</span></span><br><span class="line">        <span class="keyword">double</span> num5[];</span><br><span class="line">        num5 = <span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">33.123</span>, <span class="number">51.792</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 아래와 같은 경우를 불허한다.</span></span><br><span class="line">        <span class="keyword">double</span> num6[] = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">123</span>];</span><br><span class="line">        num6 = &#123;<span class="number">123.22</span>, <span class="number">33</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 수정할 때는 new 연산자를 써서 새로 만들어줘야한다.</span></span><br><span class="line">        num2 = <span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">123</span>, <span class="number">456</span>, <span class="number">111.33</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 아래 세 문장은 배열의 길이가 0이다.</span></span><br><span class="line">        <span class="keyword">int</span> num7[] = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;&#125;;</span><br><span class="line">        <span class="keyword">int</span> num8[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> num9[] = &#123;&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// import java.util.Arrays;</span></span><br><span class="line">        <span class="comment">// java 패키지의 utill 패키지의 Arrays 클래스에 있는 toString이라는 메소드를 쓴다.</span></span><br><span class="line">        System.out.println(Arrays.toString(num4)); <span class="comment">// [1.5, 3.14, 15.0]</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// char 배열은 for 문이나 다른 메소드를 안 써도 된다.</span></span><br><span class="line">        <span class="keyword">char</span> ch[] = &#123;<span class="string">&#x27;h&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;;</span><br><span class="line">        System.out.println(ch); <span class="comment">// hello</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="배열을-복사하는-방법"><a href="#배열을-복사하는-방법" class="headerlink" title="배열을 복사하는 방법"></a>배열을 복사하는 방법</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/01/24/Java-study-006day/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1400,104 +1509,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/01/02/Cpp-ref-001/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/01/02/Cpp-ref-001/" class="post-title-link" itemprop="url">(C++) 참고용 정리 - 변수의 주소</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2017-01-02 09:59:21" itemprop="dateCreated datePublished" datetime="2017-01-02T09:59:21+09:00">2017-01-02</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/01/02/Cpp-ref-001/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/Cpp-ref-001/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/images/Cpp-ref-001/thumb.png">  </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num2 = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">int</span> num3 = num;</span><br><span class="line">    <span class="comment">// 같은 값이던 변수를 참조하던 다른 메모리 공간을 차지함.</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;num2 &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0x7FFF5322DAD8</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;num &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0x7FFF5322DAD4</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;num3 &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0x7FFF5322DAD0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">198</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,113 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/05/07/jvm-gc-basic/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/05/07/jvm-gc-basic/" class="post-title-link" itemprop="url">(JVM) Garbage Collection Basic</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-05-07 01:43:52" itemprop="dateCreated datePublished" datetime="2019-05-07T01:43:52+09:00">2019-05-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/05/07/jvm-gc-basic/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/07/jvm-gc-basic/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/jvm-gc-basic/thumb.png" alt="PermGen은 자바 8에서 Metaspcae로 대체됐다. 이미지 출처: https://help.sap.com/">  </p>
+<h2 id="읽기-전-주의사항-그림을-보는-법"><a href="#읽기-전-주의사항-그림을-보는-법" class="headerlink" title="읽기 전 주의사항(그림을 보는 법)"></a>읽기 전 주의사항(그림을 보는 법)</h2><p>그림을 그리다보니 Stack에 있는 동그라미 모양과 힙 메모리에 있는 동그라미 모양이 동일한 그림들이 많이 있습니다.<br>이건 <strong>둘이 동일한 메모리를 의미하는 게 아니라 그냥 스택에서 힙을 참조</strong>한다는 걸 그린 건데,<br>사실 둘의 모양을 다르게 그려야하는데 아무 생각없이 복붙해서 그리다보니 이렇게 그리게 되었고…<br>되돌리기에는 너무 많이 그림을 그려놔서(히스토리 추적이 안 되게 막 그려서…) 귀챠니즘으로 인해 그림을 수정하지 않았습니다.<br>이 점 참고하셔서 보시길 바랍니다!</p>
+<h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p><img src="/images/jvm-gc-basic/optimizing-java.jpeg"><br>이 글은 이일웅 님께서 번역하신 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.naver.com/bookdb/book_detail.nhn?bid=14796595">자바 최적화</a>란 책을 읽던 도중 공부한 내용을 정리한 글입니다.<br>절대 해당 책의 홍보는 아니며 좋은 책을 써준 사람과 번역해주신 분께 진심으로 감사하는 마음에 썼습니다. </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/07/jvm-gc-basic/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1234,117 +1341,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/03/10/green-thread-vs-native-thread/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/03/10/java-synchronized-note/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/03/10/java-synchronized-note/" class="post-title-link" itemprop="url">(Java) synchronized 키워드가 가지는 의미</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2019-03-10 17:45:29" itemprop="dateCreated datePublished" datetime="2019-03-10T17:45:29+09:00">2019-03-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/03/10/java-synchronized-note/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/10/java-synchronized-note/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/images/java-synchronized-note/thumb.png"></p>
-<p>synchronized 키워드를 사용하는 이유를 살펴보기 전에 쓰레드를 왜 여러 개 사용하는지부터 알아보자.  </p>
-<h2 id="쓰레드를-여러-개-멀티-쓰레딩-사용하는-이유"><a href="#쓰레드를-여러-개-멀티-쓰레딩-사용하는-이유" class="headerlink" title="쓰레드를 여러 개(멀티 쓰레딩) 사용하는 이유"></a>쓰레드를 여러 개(멀티 쓰레딩) 사용하는 이유</h2><ol>
-<li>CPU가 I/O(파일, 네트워크 등등) 작업에 의해 Blocking 돼서 놀고 있을 때<br>만약 DB를 호출하는 작업(네트워크 I/O)이 있다고 치자.<br>I/O가 발생하면 기본적으로 CPU는 Block된다. (idle 상태에 빠져 놀고 있다.)<br>이렇게 CPU가 놀고 있을 때 다른 쓰레드가 CPU를 점유한다면 CPU는 더 이상 놀지 않게 된다.<br>이렇게 CPU의 병목을 줄이다보면 성능을 개선할 수 있다.</li>
-<li>시분할 다중화를 통해 동시에 여러 작업이 처리되게 끔 보이게 할 때<br>문서 작성을 하면서 동시에 웹 브라우저에서 파일을 다운로드 받을 수 있는 행위는 바로 CPU에서 쓰레드를 돌아가며 작업을 처리하기 때문이다.<br>만약 파일 다운로드가 다 끝나야지만 문서 작성을 할 수 있다고 하면 얼마나 불편하겠는가?<br>물론 그렇다고 해서 진짜 동시에 여러 작업이 수행되는 게 아니라 사람이 체감 못할 정도로 시간을 쪼개서 작업을 수행하는 것이다. </li>
-</ol>
-<h2 id="멀티-쓰레드-프로그래밍을-할-때-생기는-문제"><a href="#멀티-쓰레드-프로그래밍을-할-때-생기는-문제" class="headerlink" title="멀티 쓰레드 프로그래밍을 할 때 생기는 문제"></a>멀티 쓰레드 프로그래밍을 할 때 생기는 문제</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/03/10/java-synchronized-note/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>

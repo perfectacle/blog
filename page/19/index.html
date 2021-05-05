@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">197</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">198</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,104 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/01/02/Cpp-ref-001/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/01/02/Cpp-ref-001/" class="post-title-link" itemprop="url">(C++) 참고용 정리 - 변수의 주소</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-01-02 09:59:21" itemprop="dateCreated datePublished" datetime="2017-01-02T09:59:21+09:00">2017-01-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/01/02/Cpp-ref-001/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/Cpp-ref-001/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/Cpp-ref-001/thumb.png">  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num2 = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">int</span> num3 = num;</span><br><span class="line">    <span class="comment">// 같은 값이던 변수를 참조하던 다른 메모리 공간을 차지함.</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;num2 &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0x7FFF5322DAD8</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;num &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0x7FFF5322DAD4</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; &amp;num3 &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 0x7FFF5322DAD0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1331,118 +1429,6 @@ No, the Student License is valid for one year and perpetual licenses are not pro
 <img src="/images/CDN-Free-Hosting/11.png" alt="봇이 자동으로 업데이트하기 위한 파일, Commit new file을 클릭하자."><br><img src="/images/CDN-Free-Hosting/12.png" alt="다시 한 번 Create new file을 클릭하자."><br><img src="/images/CDN-Free-Hosting/13.png" alt="호스팅 하길 원하는 버전의 디렉토리를 만들고 dummy 파일을 만들자. 어차피 삭제할 거다."><br><img src="/images/CDN-Free-Hosting/14.png" alt="해당 버전의 디렉토리로 가서 Upload files를 누르자."><br><img src="/images/CDN-Free-Hosting/15.png" alt="호스팅 하려는 파일을 업로드 하고 Commit changes를 누르자."><br><img src="/images/CDN-Free-Hosting/16.png" alt="dummy 파일을 누르자."><br><img src="/images/CDN-Free-Hosting/17.png" alt="삭제하자."><br><img src="/images/CDN-Free-Hosting/18.png" alt="머지 및 호스팅 요청을 위해 풀리퀘를 날리자."><br><img src="/images/CDN-Free-Hosting/19.png" alt="부연 설명을 블라블라 적어보자."><br><img src="/images/CDN-Free-Hosting/20.png" alt="봇이 풀리퀘(PR)에서 오류를 검출했단다."><br>예제 작성을 위해 한글을 썼더니 ascii 케릭터로만 적으라는 오류를 뿜는다.<br>하단의 Close pull request를 눌러서 취소 시키고, 오류를 수정한 후 다시 풀리퀘를 날리면 된다.<br><img src="/images/CDN-Free-Hosting/21.png" alt="인내와 고통의 시간이 지나면 관리자가 머지를 한다."><br><img src="/images/CDN-Free-Hosting/22.png" alt="마스터 브랜치에서도 내 라이브러리가 추가되었다."><br><img src="/images/CDN-Free-Hosting/23.png" alt="나의 라이브러리가 jsdelivr CDN에 등록되었다."><br>감격의 순간이다 흑흑흑…<br>버전 별로 호스팅이 되어있고, unminify, minify한 js 파일 모두 다 호스팅 되었다.<br>세상 어딘가에 나의 발자취를 남긴 것 같아 굉장히 뿌듯하다.</li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2016/11/27/ES-RegExp-ex/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/11/27/ES-RegExp-ex/" class="post-title-link" itemprop="url">(ES) 정규표현식 응용하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2016-11-27 23:14:30" itemprop="dateCreated datePublished" datetime="2016-11-27T23:14:30+09:00">2016-11-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/ECMAScript/" itemprop="url" rel="index"><span itemprop="name">ECMAScript</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/11/27/ES-RegExp-ex/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/27/ES-RegExp-ex/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/images/ES-RegExp-ex/thumb.png"><br>이 포스트는 정규표현식에 대한 기초 사항을 설명하진 않는다.<br>대신 다양한 케이스와 테스트 하는 방법 등등에 대해 포커스를 맞춘다.<br>정규표현식의 기초에 대해 궁금한 사람들은 아래 링크를 참조하길 바란다.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.nextree.co.kr/p4327/">http://www.nextree.co.kr/p4327/</a><br>정규표현식을 책의 목차의 제일 마지막에 있는 것을 보아 가장 어려운 내용인 줄 알았는데,<br><strong>안 어렵다. 쉽다.</strong><br>클로저, 콜백 등등의 개념을 몰라도 당장 익히는데 전혀 무리가 없다.<br>그리고 안 써먹으면 까먹는다. 당연하다.<br>필자도 쓸 때마다 찾아봐서 테스트하지, 그렇다 해도 시간이 절대 오래 걸리지 않는다.<br>필요한 내용만 찾아서 쓰고 테스트하면 되고, 도움을 주는 여러가지 것들이 많으니 당장 배워보길 바란다.<br>또한 다른 프로그래밍 언어에서도 조금씩 다른 형태로 지원하니 알아두면 좋다.</p>
-<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><ol>
-<li><a href="#%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D%EC%9D%80-%EC%99%9C-%EC%93%B8%EA%B9%8C">정규표현식은 왜 쓸까</a></li>
-<li><a href="#%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%B4%EB%B3%B4%EA%B8%B0">테스트해보기</a></li>
-<li><a href="#%EC%9D%91%EC%9A%A9%ED%95%98%EA%B8%B0">응용하기</a></li>
-<li><a href="#and%EC%9D%98-%EC%9B%90%EB%A6%AC-%ED%8C%8C%EC%95%85%ED%95%98%EA%B8%B0">and의 원리 파악하기</a></li>
-</ol>
-<h2 id="정규표현식은-왜-쓸까"><a href="#정규표현식은-왜-쓸까" class="headerlink" title="정규표현식은 왜 쓸까?"></a>정규표현식은 왜 쓸까?</h2><p>정규표현식은 문자열을 가지고 놀 때 쓴다.<br>정규표현식을 쓰지 않아도 되지만 코드를 줄이기 위해서 사용한다.<br>아래 코드를 봐보자.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/11/27/ES-RegExp-ex/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
