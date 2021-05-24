@@ -295,10 +295,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">작성일</span>
-      
 
-      <time title="Post created: 2021-05-24 04:44:56 / Updated at: 04:55:41" itemprop="dateCreated datePublished" datetime="2021-05-24T04:44:56+09:00">2021-05-24</time>
+      <time title="Post created: 2021-05-24 04:44:56" itemprop="dateCreated datePublished" datetime="2021-05-24T04:44:56+09:00">2021-05-24</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2021-05-25 02:38:40" itemprop="dateModified" datetime="2021-05-25T02:38:40+09:00">2021-05-25</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -344,7 +350,7 @@
           <h2 id="3줄-요약"><a href="#3줄-요약" class="headerlink" title="3줄 요약"></a>3줄 요약</h2><ol>
 <li>OSIV가 꺼져있으면 트랜잭션이 시작될 때 엔티티 매니저가 생성되고, 트랜잭션이 끝날 때 엔티티 매니저를 종료한다.</li>
 <li>OSIV가 꺼져있고, 다른 트랜잭션이라면 엔티티 매니저가 공유되지 않기 때문에 엔티티 매니저의 1차 캐시도 서로 공유되지 않는다.</li>
-<li>OSIV가 켜져있으면 요청 당 엔티티 매니저는 한 번 생성되고, 뷰 렌더링이 끝날 때까지 엔티티 매니저는 제거되지 않고 트랜잭션이 다르더라도 1차 캐시가 공유된다. </li>
+<li>OSIV가 켜져있으면 요청 당 엔티티 매니저는 한 번 생성되고, 뷰 렌더링이 끝날 때까지 엔티티 매니저는 종료되지 않고 트랜잭션이 다르더라도 1차 캐시가 공유된다. </li>
 </ol>
 <h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p>엔티티 매니저 팩토리는 생성 비용이 비싸서 대부분 어플리케이션 당 하나를 생성하는 편이고, 엔티티 매니저는 생성 비용이 비싸지 않아서 어플리케이션에서 여러 번 생성된다.<br>하지만 엔티티 매니저는 쓰레드 세이프 하지 않기 때문에, 쓰레드 당 하나를 생성해야할 것 같고 Spring MVC는 리퀘스트 당 하나의 쓰레드가 할당되기 때문에 리퀘스트 당 하나의 엔티티 매니저가 생성될 것만 같은 기분이 든다.<br>나 또한 그렇게 알고 있었는데 아래 코드를 통해 뭔가 의문이 생겼다.</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">SomeRepository</span> : <span class="type">JpaRepository</span>&lt;<span class="type">SomeEntity, Long</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeService</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> repository: SomeRepository</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">some</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> someEntity = repository.findById(<span class="number">1L</span>)</span><br><span class="line">        <span class="keyword">val</span> someEntity2 = repository.findById(<span class="number">1L</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
