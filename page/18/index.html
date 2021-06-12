@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">199</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">200</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,119 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/01/25/ES6-ajax-with-fetch/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/01/25/ES6-ajax-with-fetch/" class="post-title-link" itemprop="url">(ES6+) ajax를 위한 fetch와 async/await</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2017-01-25 18:37:49" itemprop="dateCreated datePublished" datetime="2017-01-25T18:37:49+09:00">2017-01-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/ECMAScript/" itemprop="url" rel="index"><span itemprop="name">ECMAScript</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/ECMAScript/ES2015/" itemprop="url" rel="index"><span itemprop="name">ES2015+</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2017/01/25/ES6-ajax-with-fetch/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/25/ES6-ajax-with-fetch/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/ES6-ajax-with-fetch/thumb.png"><br>이 글을 읽기 전에 <a href="/2017/01/21/ES6-Promise-with-ajax/">(ES6) ajax 위주의 promise 실습</a>를 먼저 읽을 것을 권한다.<br>ajax(XMLHttpRequest)와 promise에 대한 기본적인 이해가 있다면 상관없긴 하다.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.facebook.com/zerohch0?fref=ufi">조현영</a> 님의 제보에 의하면 ie에서 fetch가 안 되고,<br>async/await 크롬과 오페라에서만 된다고 한다.<br>아래 사이트에서 확인 가능하다.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#Browser_compatibility">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#Browser_compatibility</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="http://kangax.github.io/compat-table/es2016plus/#test-async_functions">ECMAScript Next compatibility table</a></p>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p>다시 공부하다보니 XMLHttpRequest와 Fetch는 ECMAScript가 아니라고 한다.<br>브라우저에서만 쓰이는 API이기 때문에 babel에서도 지원해주지 않기 때문에<br>크로스 브라우징을 위해선 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/github/fetch">window.fetch polyfill</a>을 쓰자.<br>우선 기존에 우리가 ajax를 하기 위해서 어떻게 했는지 보자.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonURL = <span class="string">&quot;https://perfectacle.github.io/mock/test.json&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getDataAjax = <span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.open(<span class="string">&quot;get&quot;</span>, url, <span class="literal">true</span>);</span><br><span class="line">  xhr.responseType = <span class="string">&quot;json&quot;</span>;</span><br><span class="line">  xhr.onreadystatechange = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>) &#123; <span class="comment">// 4 means request is done.</span></span><br><span class="line">      <span class="keyword">if</span>(xhr.status === <span class="number">200</span>) &#123; <span class="comment">// 200 means status is successful</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> xhr.response) &#123; <span class="comment">// 받아온 json 데이터의 키와 값의 쌍을 모두 출력.</span></span><br><span class="line">          <span class="keyword">if</span>(xhr.response.hasOwnProperty(key))</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>: <span class="subst">$&#123;xhr.response[key]&#125;</span>`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// 통신 상에 오류가 있었다면 오류 코드를 출력.</span></span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">`http status code: <span class="subst">$&#123;xhr.status&#125;</span>`</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.send();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">getDataAjax(jsonURL);</span><br></pre></td></tr></table></figure>
+
+<p>이 복잡한 getDataAjax 부분을 줄여보자.  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/01/25/ES6-ajax-with-fetch/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1390,114 +1503,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/01/21/ES6-Promise-with-ajax/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2017/01/20/Java-study-005day/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/01/20/Java-study-005day/" class="post-title-link" itemprop="url">(Java) 자바의 정석 3판 005일차 - 반복문(for, while, do-while), continue와 break</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2017-01-20 15:31:25" itemprop="dateCreated datePublished" datetime="2017-01-20T15:31:25+09:00">2017-01-20</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Note/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/01/20/Java-study-005day/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/20/Java-study-005day/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/images/Java-study-005day/thumb.png"></p>
-<h2 id="반복문"><a href="#반복문" class="headerlink" title="반복문"></a>반복문</h2><h2 id="for문"><a href="#for문" class="headerlink" title="for문"></a>for문</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;i \t i % 3 \t i / 3&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">12</span>;)</span><br><span class="line">            System.out.printf(<span class="string">&quot;%d \t %d \t %d%n&quot;</span>, i, i%<span class="number">3</span>, i++/<span class="number">3</span>);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            i % n에서 % 연산자는 n개의 숫자가 연속적으로 순환하면서 나오고</span></span><br><span class="line"><span class="comment">            i / n에서 / 연산자는 동일한 숫자가 n번 연속해서 나온다.</span></span><br><span class="line"><span class="comment">            알고리즘 어딘가 쓰일지 모르니 기억해두자.</span></span><br><span class="line"><span class="comment">            i 	 i % 3 	 i / 3</span></span><br><span class="line"><span class="comment">            0 	 0 	 0</span></span><br><span class="line"><span class="comment">            1 	 1 	 0</span></span><br><span class="line"><span class="comment">            2 	 2 	 0</span></span><br><span class="line"><span class="comment">            3 	 0 	 1</span></span><br><span class="line"><span class="comment">            4 	 1 	 1</span></span><br><span class="line"><span class="comment">            5 	 2 	 1</span></span><br><span class="line"><span class="comment">            6 	 0 	 2</span></span><br><span class="line"><span class="comment">            7 	 1 	 2</span></span><br><span class="line"><span class="comment">            8 	 2 	 2</span></span><br><span class="line"><span class="comment">            9 	 0 	 3</span></span><br><span class="line"><span class="comment">            10 	 1 	 3</span></span><br><span class="line"><span class="comment">            11 	 2 	 3</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="향상된-for문"><a href="#향상된-for문" class="headerlink" title="향상된 for문"></a>향상된 for문</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/20/Java-study-005day/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>

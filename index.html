@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">199</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">200</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,115 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2021/06/13/entity-manager-persist-vs-merge/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/13/entity-manager-persist-vs-merge/" class="post-title-link" itemprop="url">(JPA) persist vs merge</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2021-06-13 04:02:52" itemprop="dateCreated datePublished" datetime="2021-06-13T04:02:52+09:00">2021-06-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Back-end/" itemprop="url" rel="index"><span itemprop="name">Back-end</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Back-end/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/06/13/entity-manager-persist-vs-merge/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/13/entity-manager-persist-vs-merge/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서"></a>들어가기에 앞서</h2><p>글을 정리하다 보니 너무 깊게 파고 정리한 거 같아 글이 너무 길어져서 아무도 읽지 않을 것 같아 정리부터 해보겠습니다.</p>
+<ol>
+<li>엔티티 매니저의 persist 메서드는 리턴값이 없기 때문에 원본 객체를 수정하고, merge 메서드는 리턴값이 있기 때문에 새로운 객체를 반환합니다.</li>
+<li>JpaRepository.save 호출 시 엔티티의 식별자(@Id, @EmbeddedId 어노테이션이 붙은 컬럼 등등)가 붙은 필드의 타입이 primitive type일 때는 null이거나 숫자형일 때는 0이면 새로운 엔티티라고 판단하면서 persist 메서드가 호출되고, 그게 아니면 merge 메서드가 호출됩니다. </li>
+<li>JPQL 호출 시 FlushMode가 AUTO(하이버네이트 기본 FlushMode)라 하더라도 쿼리 지연 저장소에 JPQL에서 사용하는 테이블과 관련있는 쿼리가 저장돼있지 않다면 flush를 호출하지 않습니다.</li>
+<li>JPQL 호출 시 AutoFlushEvent가 발생하면서 flush 이전에 cascade가 먼저 이뤄지는데 이 때는 PersistEvent가 발생하면서 원본 엔티티를 변경합니다.</li>
+<li>JpaRepository.save 호출 시 엔티티가 새로운 엔티티가 아니면 MergeEvent가 발생하고, cascade가 발생하는데 이 때 해당 엔티티에 대해 MergeEvent가 또 발생하면서 Transient 상태인 경우에는 원본 엔티티를 카피하고 카피한 객체의 값을 수정하고 연관관계가 맺어진 엔티티에서는 레퍼런스도 카피 객체로 바꿔치기 하고 있습니다.</li>
+<li>JpaRepository.save 호출 시 엔티티가 새로운 엔티티가 아니면 MergeEvent가 발생하는데 cascade 이후에 DirtyChecking이나 Flush가 호출되지 않습니다.</li>
+<li>모든 트랜잭션이 끝난 이후에 커밋 이전에 FlushMode가 MANUAL이 아니고, Managed Entity가 존재하면 FlushEvent를 발생시켜서 DirtyChecking 및 Flush를 하게 됩니다.</li>
+</ol>
+<p>제목은 엔티티 매니저의 persist와 merge에 대해 개념을 설명할 것처럼 적어놨지만 이해를 돕기 위해, 흥미 유발을 위해 사내에서 겪었던 문제 과정을 서술하겠습니다.</p>
+<h2 id="문제-상황"><a href="#문제-상황" class="headerlink" title="문제 상황"></a>문제 상황</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/13/entity-manager-persist-vs-merge/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1186,104 +1295,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/12/26/intellij-vs-gradle-in-classpath/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2020/12/25/dependency-injection-in-junit/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/25/dependency-injection-in-junit/" class="post-title-link" itemprop="url">Spring Boot + JUnit에서 의존성 주입하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-      
-
-      <time title="Post created: 2020-12-25 02:55:29 / Updated at: 02:52:42" itemprop="dateCreated datePublished" datetime="2020-12-25T02:55:29+09:00">2020-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/12/25/dependency-injection-in-junit/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/25/dependency-injection-in-junit/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="JUnt-4"><a href="#JUnt-4" class="headerlink" title="JUnt 4"></a>JUnt 4</h2><p>Field Injection 밖에 되지 않음.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes#junit-5">Spring Boot 2.2.0</a>부터 JUnit 5가 기본으로 탑재되기 시작했고,<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.4-Release-Notes#junit-5s-vintage-engine-removed-from-spring-boot-starter-test">Spring Boot 2.4.0</a>부터는 아예 JUnit 4 의존성이 제거됐기 때문에 <code>JUnit 4의 사용은 하지 말아야한다.</code></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner::class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">lateinit</span> <span class="keyword">var</span> a: SomeComponent</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">contextLoad</span><span class="params">()</span></span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="JUnit-5"><a href="#JUnit-5" class="headerlink" title="JUnit 5"></a>JUnit 5</h2><p>JUnit 5의 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://junit.org/junit5/docs/5.1.1/api/org/junit/jupiter/api/extension/ExtendWith.html">@ExtendedWith</a> 어노테이션을 이용하면 테스트 전/후로 다양한 일을 할 수 있다.<br>@ExtendedWith 어노테이션은 어노테이션에 명시한 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://junit.org/junit5/docs/5.1.1/api/org/junit/jupiter/api/extension/Extension.html">Extension</a>들을 실행하는 역할 뿐이 하지 않는다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/25/dependency-injection-in-junit/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>

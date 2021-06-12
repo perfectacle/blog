@@ -140,7 +140,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">242</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">44</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">199</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">200</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
         </a>
@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -263,6 +263,119 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2019/03/10/how-can-webflux-process-huge-requests-with-fewer-threads/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/avatar.png">
+      <meta itemprop="name" content="양권성">
+      <meta itemprop="description" content="Toss Server Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="오늘도 끄적끄적">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/03/10/how-can-webflux-process-huge-requests-with-fewer-threads/" class="post-title-link" itemprop="url">어떻게 웹플럭스는 적은 쓰레드만으로 많은 요청을 처리할 수 있을까?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2019-03-10 19:24:38" itemprop="dateCreated datePublished" datetime="2019-03-10T19:24:38+09:00">2019-03-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/03/10/how-can-webflux-process-huge-requests-with-fewer-threads/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/10/how-can-webflux-process-huge-requests-with-fewer-threads/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/how-can-webflux-process-huge-requests-with-fewer-threads/thumb.png"></p>
+<p>기본적으로 SpringMVC에서 많이 사용하는 WAS인 Tomcat의 경우에는 기본적으로 쓰레드 풀의 갯수가 200개이고,<br>Jetty의 경우에는 기본적으로 minimum 8개에서 maximum 200개로 설정돼있다.<br>쓰레드 생성 비용은 비싸므로(오래 걸리므로) 미리 생성해서 ThreadPool에 쌓아놓는 것이다.<br>여기서 말하는 Thread는 <a href="/2019/03/10/green-thread-vs-native-thread/">Green Thread vs Native Thread</a>에서 얘기하다 싶이 Native Thread(OS에서 관리하는 Thread)이다.<br>이 말은 동시에 요청을 최대 200개까지 처리 가능하단 얘기이다.</p>
+<p>그에 반해 Webflux는 core * 2의 Thread만을 생성한다.<br>SpringMVC에 비해 턱없이 모자란 쓰레드 갯수이고 그럼 싱글 코어의 경우에는 동시에 2개의 요청밖에 처리하지 못할 것처럼 보인다.  </p>
+<h2 id="SpringMVC는-어떻게-동작하는가"><a href="#SpringMVC는-어떻게-동작하는가" class="headerlink" title="SpringMVC는 어떻게 동작하는가?"></a>SpringMVC는 어떻게 동작하는가?</h2><ol>
+<li>요청이 들어오면 ThreadPool에서 Thread를 하나 사용한다.  </li>
+<li>그러다 I/O(File I/O, Network I/O 등등)가 발생하면 CPU를 block 시킨다. (idle 상태에 빠진다.)  </li>
+<li>이 때 다른 요청이 들어오면 ThreadPool에서 Thread를 하나 사용한다.  </li>
+<li>이런 식으로 쓰레드를 돌아가면서 요청을 처리하고 block이 풀리면 작업을 이어나간다.  </li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/03/10/how-can-webflux-process-huge-requests-with-fewer-threads/#more" rel="contents">
+                더 읽어보기 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1244,118 +1357,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/09/25/unix-timestamp/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://perfectacle.github.io/2018/08/30/aws-security-group-reference-another-security-group/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar/avatar.png">
-      <meta itemprop="name" content="양권성">
-      <meta itemprop="description" content="Toss Server Developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="오늘도 끄적끄적">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/30/aws-security-group-reference-another-security-group/" class="post-title-link" itemprop="url">(AWS) Security Group에서 다른 Security Group을 참조하는 경우</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2018-08-30 03:41:08" itemprop="dateCreated datePublished" datetime="2018-08-30T03:41:08+09:00">2018-08-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Updated at: 2020-08-24 01:18:44" itemprop="dateModified" datetime="2020-08-24T01:18:44+09:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Middle-end/" itemprop="url" rel="index"><span itemprop="name">Middle-end</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-          <a href="/categories/Middle-end/DevOps/" itemprop="url" rel="index"><span itemprop="name">DevOps</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/08/30/aws-security-group-reference-another-security-group/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/30/aws-security-group-reference-another-security-group/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/images/aws-security-group-reference-another-security-group/thumb.png"></p>
-<h2 id="상황"><a href="#상황" class="headerlink" title="상황"></a>상황</h2><p>결제 서비스는 아래와 같은 접근 경로를 허용해야한다.  </p>
-<ol>
-<li>사내</li>
-<li>결제 서비스 개발자의 작업 공간</li>
-<li>A라는 웹 서비스  </li>
-</ol>
-<p>따라서 아래와 같은 Security Group을 가져야한다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/30/aws-security-group-reference-another-security-group/#more" rel="contents">
                 더 읽어보기 &raquo;
               </a>
             </div>
